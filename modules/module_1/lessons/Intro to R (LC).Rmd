@@ -1,0 +1,50 @@
+---
+title: "R Notebook"
+author: "Jeremy McWilliams"
+output: html_notebook
+---
+
+# Introduction to R and Data Concepts
+## September 7th, 2022
+
+
+### Goals
+* Gain some familiarity and comfort with rstudio
+* Learn how to assign variables 
+* Learn about and use functions 
+* Write code to work with a data set
+
+
+### What's the deal with this document?
+
+This type of document is called an "R Notebook". It's basically a mix of text, code, and "R Markdown".
+"R Markdown" is a shorthand for creating formatted text in documents. One of the neat things about R Notebooks is that you can "knit" it to an output like PDF or HTML. We'll see this in action at the end of this lesson.
+
+Let's now look at "code chunks" by diving into R programming!
+
+
+### Basic R 
+
+
+The grey rectangle below is a "code chunk". Everything between the beginning and ending three backticks (```) is interpreted as R code. To run the code, click the green triangle in the upper-right corner.
+
+In this example, R can perform basic math:
+
+```{r}
+
+2+2
+
+```
+
+
+Now it's your turn. Enter code below to subtract ten from twenty-two:
+
+```{r}
+
+
+
+```
+
+
+#### Assigning Variables
+
