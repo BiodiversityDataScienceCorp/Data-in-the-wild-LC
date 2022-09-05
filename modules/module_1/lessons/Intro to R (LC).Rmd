@@ -211,7 +211,7 @@ teamAntarcticaData
 
 Earlier in this exercise we looked at the array of responses for both fishing and cooking aptitude, though in both cases the vectors were hand-typed (by me). A much more common way to acquire, and then use, a vector of data is to directly query the data set. You can get a vector (a.k.a. column) of data by using the following syntax:
 
-dataSet\$columnName
+`dataSet$columnName`
 
 Let's get all responses for fishing aptitude directly from the data set:
 
@@ -245,7 +245,7 @@ Use the data set to get the column values for tolerance of cold (hint: after typ
 
 # create a variable that contains the column values for cold tolerance
 
-cold<-teamAntarcticaData$`Rate your tolerance of cold, from 1-5 (1=low, 5=high)`
+
 
 #calculate the mean
 
@@ -257,4 +257,20 @@ cold<-teamAntarcticaData$`Rate your tolerance of cold, from 1-5 (1=low, 5=high)`
 
 
 
+```
+
+Do the same thing for quality of bedside manner:
+
+```{r}
+# create a variable that contains the column values for bedside manner
+
+
+
+#calculate the mean
+
+
+#calculate the median
+
+
+# calculate the standard deviation
 ```
