@@ -11,7 +11,7 @@ output: html_notebook
 ### Goals
 
 -   Gain some familiarity and comfort with rstudio
--   Learn how to assign variables
+-   Review how to assign variables
 -   Learn about and use functions
 -   Learn about and use vectors
 -   Write code to work with a data set, and calculate some descriptive statistics
@@ -32,7 +32,7 @@ Now it's your turn. Enter code below to subtract ten from twenty-two:
 
 ```{r}
 
-
+22-10
 
 ```
 
@@ -62,7 +62,8 @@ Now it's your turn. Create a variable "y", set it equal to 7+9, and then print i
 
 ```{r}
 
-
+y<-7+9
+y
 
 
 
@@ -75,6 +76,8 @@ Coding languages, including R, have functions that help you quickly execute comm
 
 functionName(argument1, argument2, etc....)
 
+*Arguments* are the inputs you send to a function, so it has all the information it needs to perform its operation.
+
 For example, the function `sqrt(number)` takes the square root of a number. This lets us quickly compute the answer, rather than having to write the formula for a square root.
 
 ```{r}
@@ -84,8 +87,8 @@ sqrt(9)
 YOUR TURN: In the chunk below, create a variable `z`, set it equal to the square root of 90, and print it out:
 
 ```{r}
-
-
+z<-sqrt(90)
+z
 
 ```
 
@@ -131,6 +134,10 @@ Now it's your turn. Create a vector called `mySecondVector`, assign the values 8
 
 ```
 
+Before moving on, let's talk a little about variable naming conventions. We started out using `x`, `y`, and `z` when learning about variables. That technically works, but it's better practice to be more descriptive in your variable names. The examples above and below use a syntax called "camel case". This allows you to string words together without spaces, but preserves quick readability. From this point on, we're going to create variables with camel case - you should too!
+
+![](camelCase.png){width="400"}
+
 It may not be immediately clear what the utility of vectors is, so let's take a look at a practical use case. Below is a vector containing the responses from you and your classmates (and U of Arizona students) on self-reported fishing skill (1 being low, 5 being high):
 
 ```{r}
@@ -142,7 +149,7 @@ fishingSkill
 
 ```
 
-Let's say we're interested in finding the average of all the responses. We can do this by use the `mean` function in R:
+Let's say we're interested in finding the average of all the responses. We can do this by use the `mean` function in R: (we'll dive more into descriptive statistics next week, and how they differ from inferential)
 
 ```{r}
 
@@ -171,7 +178,7 @@ sdFishingSkill<-sd(fishingSkill)
 sdFishingSkill
 ```
 
-Now it's your turn. Given the vector below of self-reported cooking skill ranking, calculate its mean and standard deviation:
+Now it's your turn. Given the vector below of self-reported cooking skill ranking, calculate its mean, median, and standard deviation:
 
 ```{r}
 
@@ -179,6 +186,7 @@ cookingSkill<-c(4,5,4,1,2,5,4,4,4,4,3,2,2,2,4,4,4,3,3,5,3,3,4,4,5,5,3,4,3,3,4,4,
 
 # calculate the mean
 
+#calculate median
 
 # calculate the standard deviation
 
@@ -197,7 +205,7 @@ library(tidyverse)
 
 ```
 
-Notice in the Files tab in the lower-right window, there is a file titled teamAntarcticaResponses.csv. This is a copy of the [spreadsheet data](https://docs.google.com/spreadsheets/d/1GDT4v6cu41-cfhNkzyrrobsuAbhzlW8GEqJxdAJZDLM/edit#gid=1722229028){target="_blank"} from the Google form. Below, we can assign the entire data set to a variable using the `read_csv` function:
+Notice in the Files tab in the lower-right window, there is a file titled teamAntarcticaData.csv. This is a copy of the [spreadsheet data](https://docs.google.com/spreadsheets/d/1GDT4v6cu41-cfhNkzyrrobsuAbhzlW8GEqJxdAJZDLM/edit#gid=1722229028){target="_blank"} from the Google form. Below, we can assign the entire data set to a variable using the `read_csv` function:
 
 ```{r}
 #load the data
@@ -217,7 +225,7 @@ Let's get all responses for fishing aptitude directly from the data set:
 
 ```{r}
 
-fishing<-teamAntarcticaData$`Rate your skill at fishing, from 1-5 (1= low, 5=high)`
+fishing<-teamAntarcticaData$fishing
 
 fishing
 
@@ -243,7 +251,7 @@ Use the data set to get the column values for tolerance of cold (hint: after typ
 
 ```{r}
 
-# create a variable that contains the column values for cold tolerance
+# create a vector that contains the column values for cold tolerance
 
 
 
@@ -259,10 +267,11 @@ Use the data set to get the column values for tolerance of cold (hint: after typ
 
 ```
 
-Do the same thing for quality of bedside manner:
+Now do the same for bedside manner:
 
 ```{r}
-# create a variable that contains the column values for bedside manner
+
+# create a vector that contains the column values for bedside manner
 
 
 
@@ -273,4 +282,18 @@ Do the same thing for quality of bedside manner:
 
 
 # calculate the standard deviation
+
 ```
+
+Now create a vector to get the responses for parka color. How is this data different from the other examples we've seen? What can we learn from the data?
+
+```{r}
+
+
+
+
+
+
+```
+
+When you're finished, click on problem-set.Rmd. **problem-set.Rmd is a homework assignment, and is due at midnight on Thursday, September 8th via Moodle.**

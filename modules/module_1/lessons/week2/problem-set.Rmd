@@ -1,0 +1,76 @@
+---
+title: "Intro - Problem Set"
+output: pdf_document
+---
+
+# Problem Set for Intro to R
+
+### Your Name (replace me)
+
+### Date (replace me)
+
+**DUE THURSDAY, Sept 8th AT MIDNIGHT**\
+Download this file, and turn it in on Moodle.\
+\
+(to download a file, check the checkbox next to the file in the lower-right window, and click the gear, then Export....)
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+1.  In the code chunk below, define what a variable is (using comments), and create a variable `myVariable` set equal to 20.
+
+```{r}
+
+
+
+```
+
+2.  Describe what a vector is in R, and create a sample vector below:
+
+```{r}
+
+
+
+
+```
+
+3.  In the code chunk below, load the tidyverse. Why might we do this, and what is the tidyverse for?
+
+```{r}
+
+
+```
+
+4.  Describe what a function is. What is an argument? How might you learn about what functions exist in R?
+
+```{r}
+
+
+
+```
+
+5.  What is camel case? Describe some best practices for naming variables.
+
+```{r}
+
+
+
+
+```
+
+6.  What is the mean for the survey responses for self reported willingness to settle in a remote environment (hint: use the `remote` column)
+
+```{r}
+
+
+
+
+
+```
+
+7.  What does the glimpse function do (we have not covered it)? How might you learn more about it?
+
+```{r}
+
+
+
+```

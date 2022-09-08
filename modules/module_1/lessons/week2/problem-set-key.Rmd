@@ -1,0 +1,102 @@
+---
+title: "Intro - Problem Set KEY"
+output: pdf_document
+---
+
+# Problem Set for Intro to R KEY
+
+### Your Name (replace me)
+
+### Date (replace me)
+
+**DUE THURSDAY, Sept 8th AT MIDNIGHT**\
+Download this file, and turn it in on Moodle.\
+\
+(to download a file, check the checkbox next to the file in the lower-right window, and click the gear, then Export....)
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+1.  In the code chunk below, define what a variable is (using comments), and create a variable `myVariable` set equal to 20.
+
+```{r}
+
+# A variable is a letter, word, or series of words that can store a value (number, word, vector, data set) in R
+
+
+myVariable<-20
+
+
+```
+
+2.  Describe what a vector is in R, and create a sample vector below:
+
+```{r}
+
+# A vector is a type of variable that stores multiple values
+
+myVector<-c(1,2,3,4,5)
+
+
+```
+
+3.  In the code chunk below, load the tidyverse. Why might we do this, and what is the tidyverse for?
+
+```{r}
+
+library(tidyverse)
+
+# Loading the tidyverse provides additional functions for R programming.
+
+# The tidyverse is a series of packages and functions written by data scientists to make working with data easier.
+
+
+```
+
+4.  Describe what a function is. What is an argument? How might you learn about what functions exist in R?
+
+```{r}
+
+# A function is a built in command that performs common tasks.
+
+# An argument is a thing (variable, data set, etc.) that you provide to a function as input.
+
+# You can learn about what functions exist by searching the internet.
+
+
+```
+
+5.  What is camel case? Describe some best practices for naming variables.
+
+```{r}
+
+# Camel case is a syntax for creating variable names in which the first word is lower case, and subsequent words are title case, with no spaces.
+
+# Variables should be named in such a manner that they are readable (e.g. with camel case), and that they accurately describe what the variable contains.
+
+
+```
+
+6.  What is the mean for the survey responses for self reported willingness to settle in a remote environment (hint: use the `remote` column)
+
+```{r}
+
+teamAntarcticaData<-read_csv("teamAntarcticaData.csv")
+
+remote<-teamAntarcticaData$remote
+
+mean(remote)
+
+
+
+
+```
+
+7.  What does the glimpse function do (we have not covered it)? How might you learn more about it?
+
+```{r}
+
+# glimpse() lets you view your dataset in a transposed view (columns become rows)
+
+# You can learn more about glimpse() by running help(glimpse). You can also find documentation/look for examples by searching the internet.
+
+```

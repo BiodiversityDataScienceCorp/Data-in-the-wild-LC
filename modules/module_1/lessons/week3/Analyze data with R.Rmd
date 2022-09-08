@@ -1,0 +1,99 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Analyze Data with R
+
+## September 14th, 2022
+
+### Goals
+
+-   Continue gaining practice loading and using data sets in R
+-   Learn how to rename columns for easier coding.
+-   Create subsets of data based upon certain conditions (a.k.a. filtering)
+-   Learn how to generate summary statistics using the group_by/summarize functions
+-   Practice other techniques for analyzing data (percentages, unique values, etc.)
+
+### Loading Data
+
+Let's start by reviewing some concepts from the last lesson:
+
+```{r}
+
+# we need to make the tidyverse available with the library function:
+
+library(tidyverse)
+
+# load the dataset to a variable
+teamAntarcticaData<-read_csv("teamAntarcticaData.csv")
+
+# view it
+teamAntarcticaData
+
+
+
+
+```
+
+### Renaming Columns & Sub-setting Data
+
+In the last lesson, we looked at descriptive statistics for columns of data for the entire data set. But what if we were interested in pursuing answers to specific questions. Here's one:
+
+-   How does the cold tolerance differ for students at Lewis & Clark vs students at the University of Arizona?
+
+One strategy we could take is to find the average cold tolerance responses for the LC students, and compare it to the average of the UA students. So we'll need to create two subsets of the original data set, using the filter function. Before doing so, let's consider how the function we're going to use, `filter`, works:
+
+`mySubset<-filter(.data=myDataFrame, columnName=="some value")`
+
+EXPLAIN ARGUMENTS
+
+It seems pretty straightforward - you first identify what data set you're taking the subset of, and then identifying the condition. We can make that work with `teamAntarcticaData`. But what about that data set might make writing this code less simple than it could be?
+
+```{r}
+
+# the "names" function let's you rename columns based on which one, sequentially, you want to rename.
+# The first column would be [1], second column would be [2], etc.
+
+names(teamAntarcticaData)[2]="school"
+
+```
+
+Now let's look at teamAntarcticaData again:
+
+```{r}
+teamAntarcticaData
+
+```
+
+We're going to be working with a number of these columns today and beyond, so let's clean up the column names using the `names` function. In the code chunk below, rename any column in teamAntarcticaData that is more than two words. Count carefully! (instead, limit to just a few columns)
+
+```{r}
+
+
+
+
+
+
+
+
+
+```
+
+Now, we can use the filter function so that it's not quite as unruly: (show pipe option too)
+
+```{r}
+
+uaStudents<-filter(.data=teamAntarcticaData, school=="University of Arizona")
+
+uaStudents
+```
+
+Below, create a subset of Lewis & Clark students:
+
+```{r}
+
+
+
+
+```
