@@ -18,7 +18,7 @@ If you can't remember how to do something, look back at Intro to R.Rmd.
 1.  What are the mean and standard deviation of bill length of the penguins?
 
 ```{r}
-# create a variable that contains only the column for bill depth
+# create a variable that contains only the column for bill length
 
 
 
