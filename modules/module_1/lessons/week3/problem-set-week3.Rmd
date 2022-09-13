@@ -5,14 +5,24 @@ output: pdf_document
 
 # Problem Set for Analyzing Data with R
 
-### Your Name (replace me)
+### Your Name
 
-### Date (replace me)
+### Date
 
-**DUE THURSDAY, Sept 15th AT MIDNIGHT**\
-Download this file, and turn it in on Moodle.\
-\
-(to download a file, check the checkbox next to the file in the lower-right window, and click the gear, then Export....)
+**DUE THURSDAY, Sept 15th AT MIDNIGHT**
+
+Instructions:
+
+-   Replace Your Name and Date above with your name and the current date.
+
+-   Complete the problem set below.
+
+-   Download the file to your computer: Check the checkbox next to the file in the lower-right window, click the gear icon, and select Export.
+
+-   Rename the file with this convention: Firstname-Lastname-problem-set-week3.Rmd (e.g. Jane-Doe-problem-set-week3.Rmd
+
+-   Upload this file to Moodle.\
+    \
 
 In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
 
