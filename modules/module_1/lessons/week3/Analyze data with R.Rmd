@@ -15,7 +15,9 @@ output: html_notebook
 
 -   Learn how to generate summary statistics using the group_by/summarize functions
 
-Homework
+### Homework
+
+`problem-set-week3.Rmd` is due to Moodle on Thursday, September 15th, at midnight. Carefully follow the instructions at the top of that document so you download, rename, and submit the correct file.
 
 ### Loading Data
 
