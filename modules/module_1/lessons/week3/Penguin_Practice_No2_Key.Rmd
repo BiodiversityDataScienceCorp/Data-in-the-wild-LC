@@ -96,7 +96,7 @@ massByIslandSpecies
 
 ```
 
-7. Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe?
+7. Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe? Calculate both the mean and standard deviation of body mass for both groups.
 ```{r}
 
 # one way is using filters and later calulating mass
