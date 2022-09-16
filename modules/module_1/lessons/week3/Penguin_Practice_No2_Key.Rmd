@@ -109,10 +109,14 @@ adelieBiscoeF
 
 # then caclulate the average mass of each of those subsets
 adelieTorgersenMassF <- mean(adelieTorgersenF$body_mass_g)
-adelieTorgersenMassF 
+adelieTorgersenSdF<-sd(adelieTorgersenF$body_mass_g)
+adelieTorgersenMassF
+adelieTorgersenSdF
 
 adelieBiscoeMassF <- mean(adelieBiscoeF$body_mass_g)
+adelieBiscoeSdF <- sd(adelieBiscoeF$body_mass_g)
 adelieBiscoeMassF
+adelieBiscoeSdF
 
 ```
 
