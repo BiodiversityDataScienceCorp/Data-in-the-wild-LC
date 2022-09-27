@@ -1,0 +1,38 @@
+---
+author: Mila Pruiett
+title: "Penguin Practice No2"
+output: pdf_document
+---
+
+# In-class practice with ggplot
+
+### Your Name (replace me)
+
+### September 30, 2022
+
+Remember: you can reference *Good_Food_Gone_Bad.Rmd* and consult Google for help with commands!
+
+First we need to load the penguin data set, just like we have before. The dataset will be called *penguins* This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
+
+```{r}
+library(palmerpenguins)
+penguins
+library(tidyverse) # to make tidyverse commands available 
+```
+
+
+There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions. We will be using data visualizations to explore some of these differences. 
+
+![](penguins.jpg){width="400"}
+
+
+1. Create a histogram of body mass for all penguin species. 
+```{r}
+
+```
+
+
+2. Create a bar plot of body mass
+
+
+
