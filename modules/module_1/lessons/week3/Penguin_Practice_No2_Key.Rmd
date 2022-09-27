@@ -100,8 +100,12 @@ massByIslandSpecies
 
 ```
 
+<<<<<<< HEAD
 7.  Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe?
 
+=======
+7. Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe? Calculate both the mean and standard deviation of body mass for both groups.
+>>>>>>> e2faa9369ecdc2ff60edca8e1e6e7cd23f2bb477
 ```{r}
 
 # one way is using filters and later calulating mass
@@ -114,10 +118,14 @@ adelieBiscoeF
 
 # then caclulate the average mass of each of those subsets
 adelieTorgersenMassF <- mean(adelieTorgersenF$body_mass_g)
-adelieTorgersenMassF 
+adelieTorgersenSdF<-sd(adelieTorgersenF$body_mass_g)
+adelieTorgersenMassF
+adelieTorgersenSdF
 
 adelieBiscoeMassF <- mean(adelieBiscoeF$body_mass_g)
+adelieBiscoeSdF <- sd(adelieBiscoeF$body_mass_g)
 adelieBiscoeMassF
+adelieBiscoeSdF
 
 ```
 
