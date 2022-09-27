@@ -11,9 +11,8 @@ output: pdf_document
 
 Remember: you can reference *Analyze data with R.Rmd* and consult Google for help with commands!
 
+First we need to load the penguin data set, just like last week. The dataset will be called *penguins* This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
 
-First we need to load the penguin data set, just like last week. The dataset will be called *penguins*
-This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
 ```{r}
 library(palmerpenguins)
 
@@ -22,7 +21,8 @@ penguins
 library(tidyverse) # to make tidyverse commands available 
 ```
 
-1. Create a vector that is the subset of the data with only penguins that live on Torgersen. How many penguins is this?
+1.  Create a vector that is the subset of the data with only penguins that live on Torgersen. How many penguins is this?
+
 ```{r}
 penguins <- na.omit(penguins)
 
@@ -30,14 +30,16 @@ torg <- filter(penguins, island == "Torgersen")
 torg
 ```
 
-2. Of the penguins that live on Torgersen, how many have flippers shorter than 190mm?
+2.  Of the penguins that live on Torgersen, how many have flippers shorter than 190mm?
+
 ```{r}
 torgShort <- filter(torg, flipper_length_mm < 190)
 torgShort
 
 ```
 
-3. Of the penguins that live on Torgersen, what percentage are female?
+3.  Of the penguins that live on Torgersen, what percentage are female?
+
 ```{r}
 
 torgFemalePerc <- torg %>% group_by(sex) %>% summarise(percent=n()/nrow(torg))
@@ -46,12 +48,12 @@ torgFemalePerc
 
 ```
 
-
-There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions. 
+There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions.
 
 ![](penguins.jpg){width="400"}
 
-4. What is the mean and standard deviation of body mass for each penguin species? (Hint: use group_by/summarize)
+4.  What is the mean and standard deviation of body mass for each penguin species? (Hint: use group_by/summarize)
+
 ```{r}
 
 massSummary <- penguins %>% group_by(species) %>% summarize(avgMass=mean(body_mass_g), sdMass=sd(body_mass_g))
@@ -59,18 +61,20 @@ massSummary <- penguins %>% group_by(species) %>% summarize(avgMass=mean(body_ma
 massSummary
 ```
 
+5.  What is the mean and standard deviation of bill length for each penguin species?
 
-5. What is the mean and standard deviation of bill length for each penguin species?
 ```{r}
 lengthSummary <- penguins %>% group_by(species) %>% summarize(avgLength=mean(bill_length_mm), sdLength=sd(bill_length_mm))
 
 lengthSummary
 ```
 
-The penguins live on different islands. The islands are different sizes and located in different locations within the Palmer Archipelago. This could affect the avaibility of prey, habitat, etc. 
+The penguins live on different islands. The islands are different sizes and located in different locations within the Palmer Archipelago. This could affect the avaibility of prey, habitat, etc.
 
 ![](Islands.png){width="400"}
-6. Do the Adelie penguins living on Torgersen Island have a different mean body mass than the Adelie penguins living on Biscoe?
+
+6\. Do the Adelie penguins living on Torgersen Island have a different mean body mass than the Adelie penguins living on Biscoe?
+
 ```{r}
 # one way is using filters and later calulating mass
 
@@ -96,7 +100,8 @@ massByIslandSpecies
 
 ```
 
-7. Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe?
+7.  Do the female Adelie penguins living on Torgersen Island have a different mean body mass than the female Adelie penguins living on Biscoe?
+
 ```{r}
 
 # one way is using filters and later calulating mass
@@ -116,14 +121,16 @@ adelieBiscoeMassF
 
 ```
 
-8. What is the maximum bill depth of penguins for each island?
+8.  What is the maximum bill depth of penguins for each island?
+
 ```{r}
 billByIsland <- penguins %>% group_by(island) %>% summarize(maxDepth=max(bill_depth_mm)) 
 billByIsland
 
 ```
 
-9. What is the percentage of female penguins present in the entire dataset?
+9.  What is the percentage of female penguins present in the entire dataset?
+
 ```{r}
 femalePerc <- penguins %>% group_by(sex) %>% summarise(percent=n()/nrow(penguins))
 
@@ -132,6 +139,7 @@ femalePerc
 ```
 
 10. During which year did the scientists measure the most penguins? (Hint: how many penguins are in the data set per year)
+
 ```{r}
 
 yearCounts <- penguins %>% group_by(year) %>% summarize(count=n())
@@ -139,7 +147,8 @@ yearCounts
 
 ```
 
-11. What species of penguin live on each island? 
+11. What species of penguin live on each island?
+
 ```{r}
 speciesByIsland <- penguins %>% group_by(species) %>% summarize(penguinSp=unique(island)) 
 speciesByIsland
@@ -154,6 +163,3 @@ speciesByIsland
 #Adelie and Chinstrap
 
 ```
-
-
-

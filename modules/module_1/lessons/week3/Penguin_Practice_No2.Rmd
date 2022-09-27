@@ -57,7 +57,9 @@ There are three different species of penguins in this dataset. We can see from t
 
 The penguins live on different islands. The islands are different sizes and located in different locations within the Palmer Archipelago. This could affect the avaibility of prey, habitat, etc.
 
-![](Islands.png){width="400"} 6. Do the Adelie penguins living on Torgersen Island have a different mean body mass than the Adelie penguins living on Biscoe?
+![](Islands.png){width="400"}
+
+6\. Do the Adelie penguins living on Torgersen Island have a different mean body mass than the Adelie penguins living on Biscoe?
 
 ```{r}
 
