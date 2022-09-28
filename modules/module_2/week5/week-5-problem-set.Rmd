@@ -1,18 +1,88 @@
 ---
-title: "Week 5 Problem Set"
-output: html_notebook
+title: "Food Gone Bad / Data Viz - Problem Set"
+output: pdf_document
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+# Problem Set for Food Gone Bad / Data Viz
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+### Your Name
+
+### Date
+
+**DUE THURSDAY, Sept 29th AT MIDNIGHT**
+
+Instructions:
+
+-   Replace Your Name and Date above with your name and the current date.
+
+-   Complete the problem set below.
+
+-   Download the file to your computer: Check the checkbox next to the file in the lower-right window, click the gear icon, and select Export.
+
+-   Rename the file with this convention: Firstname-Lastname-week-5-problem-set.Rmd (e.g. Jane-Doe-problem-set-week3.Rmd
+
+-   Upload this file to Moodle.\
+    \
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+Run this code chunk first, to make the data set from the code along is available as the variable `sick`:
 
 ```{r}
-plot(cars)
+library(tidyverse)
+sick<-read_csv("sick_data.csv")
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+1.  What does "gg" in "ggplot" stand for? What are the three components of data visualizations?
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r}
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+```
+
+2.   Create a histogram of the distribution of team member weights with ggplot. Make sure you add descriptive labels.
+
+```{r}
+
+
+
+
+```
+
+3.  Create a scatter plot displaying participant weight with percent plant intake using ggplot. Label axes appropriately.
+
+```{r}
+
+
+
+
+```
+
+4.  Describe why you might use a histogram, scatter plot, or bar plot (i.e. what is the purpose of each?).
+
+```{r}
+
+
+
+```
+
+5.  Generate a bar plot showing the average fish consumption among those who specialize in Management, Genetics, and Medicine. Include labels, and use the "fill" attribute to generate colors and a legend.
+
+```{r}
+
+
+
+
+```
+
+
+6. For each of the three plots above, write code to save the files to "histogram.jpg", "scatterplot.jpg", and "barplot.jpg". (Hint: assign each plot to a variable as part of your answer)
+
+```{r}
+
+
+
+
+
+```
