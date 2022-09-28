@@ -1,0 +1,49 @@
+---
+title: "problem-set-week-4"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+#load the station data
+
+```
+
+What is the difference between the data in the `day` and `running_day` columns? Illustrate the difference with a function we learned in class. If we're grouping by month, which would be more useful?
+
+```{r}
+
+```
+
+How is the time of day represented in the data. At what times of the day are measurements taken? Show the code used to arrive at the answer.
+
+```{r}
+
+```
+
+Report the mean and standard deviation of the atmospheric pressure for every hour, of every day, of every month.
+
+```{r}
+
+```
+
+Report the mean and standard deviation of the temperature and wind speed at noon of every day of every month.
+
+```{r}
+
+```
+
+Find the coldest and warmest days of the year (in month, day format).
+
+```{r}
+
+```
+
+Add a column to the data frame that contains the temperature in Kelvins.
+
+```{r}
+
+```
