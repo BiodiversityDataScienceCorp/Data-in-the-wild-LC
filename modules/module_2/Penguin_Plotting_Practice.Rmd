@@ -103,17 +103,23 @@ Here are some online resources for customization https://ggplot2-book.org/polish
 9. Create a a pie chart, showing the percentage of the dataset each penguin species comprises.
 ```{r}
 # first we need to calculate the number of penguins of each species in the dataset
+penguinCounts <- penguins %>% group_by(species) %>% summarise(number = n())
+penguinCounts
 
-penguinCounts 
-df <- data.frame(
-  group = c("Male", "Female", "Child"),
-  value = c(25, 25, 50)
-  )
-head(df)
+# now we need to divide each of those by the total to get the percentage
+penguinCounts$perc <- penguinCounts$number / nrow(penguins)
+penguinCounts
 
-bp<- ggplot(df, aes(x="", y=value, fill=group))+
-geom_bar(width = 1, stat = "identity")
-bp
+# now we can first make a bar plot with the data
+penguinBP <- ggplot(penguinCounts, aes(x="", y=perc, fill = species)) +
+  geom_bar(width=1, stat = "identity") +
+  labs(title="Species of Penguin in this Sample", x="", y="percentage of species")
+
+penguinBP
+
+# and finally change that to a pie chart
+penguinPieChart <- penguinBP + coord_polar("y")
+penguinPieChart
 ```
 
 
