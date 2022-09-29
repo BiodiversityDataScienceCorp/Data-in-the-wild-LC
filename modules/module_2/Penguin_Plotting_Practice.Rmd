@@ -10,7 +10,9 @@ output: pdf_document
 
 ### September 30, 2022
 
-Remember: you can reference *Good_Food_Gone_Bad.Rmd* and consult Google for help with commands!
+For each plot, be sure to give accurate and descriptive labels!
+
+Remember: you can reference *food_gone_bad.Rmd*, the ggplot-cheatsheet.pdf, and consult Google for help with commands!
 
 First we need to load the penguin data set, just like we have before. The dataset will be called *penguins* This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
 
@@ -25,14 +27,94 @@ There are three different species of penguins in this dataset. We can see from t
 
 ![](penguins.jpg){width="400"}
 
+Remember
 
-1. Create a histogram of body mass for all penguin species. 
+1. Create a histogram of body mass for all penguin species. Using comments, write a description of what this histogram shows and what bin number means. 
+```{r}
+ggplot(data = penguins, mapping=aes(x=body_mass_g)) +
+  geom_histogram() +
+  labs(title="Distribution of body mass for all species", x = "body mass (g)", y = "frequency")
+
+# this histogram shows a d
+```
+
+
+2. Create a histogram of body mass, with each species in a different color. What does this show us about the different species? Which species do you think has the greatest body mass? 
+```{r}
+ggplot(data = penguins, mapping=aes(x=body_mass_g, fill=species, alpha=0.5)) +
+  geom_histogram() +
+    labs(title="Distribution of body mass by species", x = "body mass (g)", y = "frequency")
+```
+3. Now let's find out! Create a bar graph with the average body mass for each penguin species. (Don't forget about the NAs in the dataset) Which one has the greatest average body mass? How does that compare with what you thought looking at the histogram? 
+```{r}
+penguinMass <- penguins %>% 
+  group_by(species) %>% 
+  summarize(avgMass = mean(body_mass_g, na.rm=T))
+
+ggplot(data=penguinMass, mapping=aes(x=species, y=avgMass, fill = species)) +
+  geom_bar(stat="identity")+
+  labs(title="Mass by Species", y = "Average body mass (g)", x = "species")
+
+
+```
+
+4. Create a visualization that will help answer the question: Do heavier penguins have longer flippers? Think about how many variables you have and the best way to present this data. Color by species.
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y = flipper_length_mm, color = species)) +
+  geom_point() +
+  labs(title = "Heavier penguins tend to have longer flippers", x = "body mass (g)", y = "flipper length (mm)")
+```
+5. Create a data visualization to explore the question: Do penguins with longer bills tend to have longer flippers as well? Instead of using color to mark each species, use the shape of the point.
+```{r}
+ggplot(data = penguins, mapping = aes(x=bill_length_mm, y = flipper_length_mm, shape = species)) +
+  geom_point() +
+  labs(title = "Penguins with longer bills tend to have longer flippers", x = "bill length (mm)", y = "flipper length (mm)")
+```
+6. Create a bar graph that shows the average body mass by sex. 
+```{r}
+penguinMassBySex <- penguins %>% 
+  group_by(sex) %>% 
+  summarize(avgMass = mean(body_mass_g, na.rm=T))
+
+ggplot(data=penguinMassBySex, mapping=aes(x=sex, y=avgMass, fill = sex)) +
+  geom_bar(stat="identity")+
+  labs(title="Mass by Sex", y = "Average body mass (g)", x = "sex")
+```
+
+
+7. Create one figure that has three bar graphs: comparing average body mass by sex AND species. If you need a hint, please ask!
+```{r}
+penguinMassBySexAndSp <- penguins %>% 
+  group_by(sex, species) %>% 
+  summarize(avgMass = mean(body_mass_g, na.rm=T)) %>% 
+  na.omit()
+
+ggplot(data=penguinMassBySexAndSp, mapping=aes(x=sex, y=avgMass, fill = sex)) +
+  geom_bar(stat="identity") + 
+  labs(title="Mass by Sex", y = "Average body mass (g)", x = "sex") +
+  facet_wrap(~ species)
+```
+8. There is so much option in ggplot for customizing your plots! Create any data visualization you like of the palmer penguin dataset, customizing it in at least one way. 
+Here are some online resources for customization https://ggplot2-book.org/polishing.html, http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization (scroll to the bottom to see their style guide). 
 ```{r}
 
 ```
 
+9. Create a a pie chart, showing the percentage of the dataset each penguin species comprises.
+```{r}
+# first we need to calculate the number of penguins of each species in the dataset
 
-2. Create a bar plot of body mass
+penguinCounts 
+df <- data.frame(
+  group = c("Male", "Female", "Child"),
+  value = c(25, 25, 50)
+  )
+head(df)
+
+bp<- ggplot(df, aes(x="", y=value, fill=group))+
+geom_bar(width = 1, stat = "identity")
+bp
+```
 
 
 
