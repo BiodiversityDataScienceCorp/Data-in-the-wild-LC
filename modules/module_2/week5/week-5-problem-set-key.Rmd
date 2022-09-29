@@ -1,0 +1,127 @@
+---
+title: "Food Gone Bad / Data Viz - Problem Set"
+output: pdf_document
+---
+
+# Problem Set for Food Gone Bad / Data Viz
+
+### Your Name
+
+### Date
+
+**DUE THURSDAY, Sept 29th AT MIDNIGHT**
+
+Instructions:
+
+-   Replace Your Name and Date above with your name and the current date.
+
+-   Complete the problem set below.
+
+-   Download the file to your computer: Check the checkbox next to the file in the lower-right window, click the gear icon, and select Export.
+
+-   Rename the file with this convention: Firstname-Lastname-week-5-problem-set.Rmd (e.g. Jane-Doe-problem-set-week3.Rmd
+
+-   Upload this file to Moodle.\
+    \
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+Run this code chunk first, to make the data set from the code along is available as the variable `sick`:
+
+```{r}
+library(tidyverse)
+sick<-read_csv("sick_data.csv")
+```
+
+1.  What does "gg" in "ggplot" stand for? What are the three components of data visualizations?
+
+```{r}
+
+# GG stands for "Grammar of Graphics"
+
+# The three components of data visualizations are:
+# The Data
+# The Aesthetics (the stuff you see)
+# The Geom, or type of plot
+
+
+```
+
+2.   Create a histogram of the distribution of team member weights with ggplot. Make sure you add descriptive labels, and style the bars with colors.
+
+```{r}
+
+ggplot(data=sick, mapping=aes(x=weight_kg))+
+  geom_histogram(bins=12, color="black", fill="grey" )+
+  labs(title="Distribution of weight among Team Antarctica Members", y="Frequency", x="Weight (kg)")
+
+
+```
+
+3.  Create a scatter plot displaying participant weight with percent plant intake using ggplot. Label axes appropriately, and color the points.
+
+```{r}
+
+ggplot(data=sick, mapping=aes(x=weight_kg, y=perc_plant))+
+  geom_point(color="blue")+
+  labs(title="Association of team member weights with percent plant intake", x="Weight(kg)", y="Plants as percent of diet")
+
+
+```
+
+4.  Describe why you might use a histogram, scatter plot, or bar plot (i.e. what is the purpose of each?).
+
+```{r}
+
+# You would use a histogram to show frequency distribution for a single variable in a population.
+
+# You would use a scatter plot to view associations (or lack thereof) between two numeric variables.
+
+# You would use a bar plot to compare averages (or other statistical measures) among groups
+
+
+```
+
+5.  Generate a bar plot showing the average fish consumption among those who specialize in Management, Genetics, and Medicine. Include labels, and use the "fill" attribute to generate colors and a legend.
+
+```{r}
+
+fishConsumption<- sick %>% filter(specialties=="Management" | specialties=="Genetics" | specialties=="Medicine") %>%
+  group_by(specialties) %>%
+  summarize(avgFishConsumption=mean(perc_fish))
+
+
+ggplot(data=fishConsumption, mapping=aes(x=specialties, y=avgFishConsumption, fill=specialties))+
+  geom_bar(stat="identity")+
+  labs(title="Average percent fish intake by Specialty", x="Specialty", y="Average percent fish intake")
+
+
+
+```
+
+
+6. For each of the three plots above, write code to save the files to "histogram.jpg", "scatterplot.jpg", and "barplot.jpg". (Hint: assign each plot to a variable as part of your answer)
+
+```{r}
+
+hgram<-ggplot(data=sick, mapping=aes(x=weight_kg))+
+  geom_histogram(bins=12, color="black", fill="grey" )+
+  labs(title="Distribution of weight among Team Antarctica Members", y="Frequency", x="Weight (kg)")
+
+ggsave("histogram.jpg", hgram)
+  
+splot<-ggplot(data=sick, mapping=aes(x=weight_kg, y=perc_plant))+
+  geom_point(color="blue")+
+  labs(title="Association of team member weights with percent plant intake", x="Weight(kg)", y="Plants as percent of diet")
+
+ggsave("scatterplot.jpg", splot)
+  
+barchart<-ggplot(data=fishConsumption, mapping=aes(x=specialties, y=avgFishConsumption, fill=specialties))+
+  geom_bar(stat="identity")+
+  labs(title="Average percent fish intake by Specialty", x="Specialty", y="Average percent fish intake")
+
+ggsave("barplot.jpg", barchart)
+
+
+
+```
