@@ -18,8 +18,11 @@ First we need to load the penguin data set, just like we have before. The datase
 
 ```{r}
 library(palmerpenguins)
+penguins<-palmerpenguins::penguins
 penguins
+
 library(tidyverse) # to make tidyverse commands available 
+
 ```
 
 There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions. We will be using data visualizations to explore some of these differences.
