@@ -8,21 +8,58 @@ date: "2022-09-08"
 
 # In class pracitce to understand why the fish are sick
 
-We know that there are tanks whose temperature are below the critical threshold for the immune systems of the fish species we are farming. However, there could be other factors contributing to the numbers of sick fish. After our class brainstormed more factors, the icthycologists measured: oxygen concentration, nitrogen concentration (a proxy for waste buildup), and algae concentration. We also have 
+We know that there are tanks whose temperature are below the critical threshold for the immune systems of the fish species we are farming. However, there could be other factors contributing to the numbers of sick fish. After our class brainstormed more factors, the ichthyologists (fish scientists) measured: oxygen concentration and ammonia concentration (a proxy for waste buildup). We are going to look at these factors and more to ensure our community has safe food. 
 
 
-Density likely contributes to the spread of any disease present in the system. Because we are in Antartica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacuterer and shipment. We have tanks of many different sizes. We want to look at how density relates to the number of sick fish. 
+```{r}
+# load the tidyverse
 
-Create a variable in the dataset for density. 
+# read in the data
+
+# look at the data
+
+
+```
+
+
+Density likely contributes to the spread of any disease present in the system.We want to look at how density relates to the number of sick fish. Because we are in Antartica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacturer and shipment. We have tanks of many different sizes, so we need to first calculate density. (Density = number / volume). 
+
+Create a variable in the data set for density. 
 ```{r}
 
 ```
 
 
-Create a scatterplot to examine the relationship between density and the number of sick fish. In comments, explain why we shouldn't look at the relationship between the number of sick fish and the total number of fish in a given tank. 
+Create a scatter plot to examine the relationship between density and the number of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the number of sick fish. 
 ```{r}
 
 ```
 
 
+In your group, choose one of the following to examine in more detail. Choose either tilapia or trout. 
+- Temperature
+- Oxygen concentration
+- Ammonia (NH3) concentration
+
+Your task is now to learn about this variable. Create visualizations that determine the relationship between your variable and the sickness situation. Interpret the visualizations. Be prepared to report out to the class on Wednesday. Be sure to clearly label your axes, give your graph a descriptive title, and use color effectively to communicate with your classmates. You could use: histograms, bar plots, box plots, and/or scatter plots. 
+
+
+```{r}
+# open space for you to explore
+
+```
+
+```{r}
+# open space for you to explore
+
+```
+
+```{r}
+# open space for you to explore
+
+```
+
+```{r}
+# open space for you to explore
+```
 
