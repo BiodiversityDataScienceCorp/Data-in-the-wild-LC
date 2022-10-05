@@ -112,7 +112,7 @@ Think about how many variables you are graphing (one or two), what kind of varia
 
 ```
 
-9.  Create a a pie chart, showing the percentage of the dataset each penguin species comprises.
+9.  Create a a pie chart, showing the percentage of the dataset each penguin species comprises. (you definitely will need to use google). In data science, are pie charts a good idea? Take a look [here](https://medium.com/analytics-vidhya/dont-use-pie-charts-in-data-analysis-6c005723e657), and explain your answer.
 
 ```{r}
 # first we need to calculate the number of penguins of each species in the dataset
@@ -133,4 +133,8 @@ penguinBP
 # and finally change that to a pie chart
 penguinPieChart <- penguinBP + coord_polar("y")
 penguinPieChart
+
+
+
+# Generally speaking, pie charts aren't a great choice for data visualizations, because humans aren't good and comparing shapes with angles. Differences in bar charts are much easier for humans to interpret.
 ```

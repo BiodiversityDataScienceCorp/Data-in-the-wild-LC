@@ -18,8 +18,11 @@ First we need to load the penguin data set, just like we have before. The datase
 
 ```{r}
 library(palmerpenguins)
+penguins<-palmerpenguins::penguins
 penguins
+
 library(tidyverse) # to make tidyverse commands available 
+
 ```
 
 There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions. We will be using data visualizations to explore some of these differences.
@@ -80,7 +83,7 @@ Think about how many variables you are graphing (one or two), what kind of varia
 
 ```
 
-9.  Create a a pie chart, showing the percentage of the dataset each penguin species comprises. (you definitely will need to use google)
+9.  Create a a pie chart, showing the percentage of the dataset each penguin species comprises. (you definitely will need to use google). In data science, are pie charts a good idea? Take a look [here](https://medium.com/analytics-vidhya/dont-use-pie-charts-in-data-analysis-6c005723e657), and explain your answer.
 
 ```{r}
 
