@@ -1,0 +1,28 @@
+---
+title: "Penguin_Practice_No1"
+author: Mila 
+output: html_document
+date: "2022-09-08"
+---
+
+
+# In class pracitce to understand why the fish are sick
+
+We know that there are tanks whose temperature are below the critical threshold for the immune systems of the fish species we are farming. However, there could be other factors contributing to the numbers of sick fish. After our class brainstormed more factors, the icthycologists measured: oxygen concentration, nitrogen concentration (a proxy for waste buildup), and algae concentration. We also have 
+
+
+Density likely contributes to the spread of any disease present in the system. Because we are in Antartica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacuterer and shipment. We have tanks of many different sizes. We want to look at how density relates to the number of sick fish. 
+
+Create a variable in the dataset for density. 
+```{r}
+
+```
+
+
+Create a scatterplot to examine the relationship between density and the number of sick fish. In comments, explain why we shouldn't look at the relationship between the number of sick fish and the total number of fish in a given tank. 
+```{r}
+
+```
+
+
+
