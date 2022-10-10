@@ -1,8 +1,10 @@
 ---
-title: "Penguin_Practice_No1"
-author: MP & ED
-output: html_document
-date: "2022-09-10"
+title: "Understanding Sick Fish"
+author: "MP & ED"
+date: "2022-10-10"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 # In class practice to understand why the fish are sick
@@ -11,12 +13,13 @@ We know that there are tanks whose temperature are below the critical threshold 
 
 ```{r}
 # load the tidyverse
-
+library(tidyverse)
 # read in the data, sick-fish.csv
-
+sick <- read_csv("sick-fish.csv")
 # look at the data
-
+glimpse(sick)
 ```
+
 
 Our ichthyologist friends told us that density often contributes to the spread of any disease present in a system. We want to look at how density relates to the number of sick fish. Because we are in Antarctica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacturer and shipment. We have tanks of many different sizes. We know the size of each tank and the number of fish, so we can calculate the density. (Density = number / volume).
 
@@ -24,13 +27,21 @@ Our ichthyologist friends told us that density often contributes to the spread o
 1.Create a variable in the data set for the density of fish per tank. Create a variable in the data set for the percentage of sick fish per tank. 
 
 ```{r}
+sick <- sick %>% mutate(density = num_fish / tank_volume)
 
+sick <- sick %>% mutate(perc_sick = num_sick / num_fish)
 ```
 
 
 2. Create a scatter plot to examine the relationship between density and the percentage of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the percentage of sick fish.
 
 ```{r}
+
+ggplot(data = sick, mapping = aes(density, perc_sick, color = species)) +
+  geom_point()
+
+# percentage sick is standardized across all the tank volumes and fish populations, so it puts everything in the same units
+
 
 ```
 
@@ -51,7 +62,7 @@ PAUSE. CLASS DISCUSSION OF CHOICES.
 3. What is your variable and species?
 ```{r}
 # comment it out
-
+# trout and ammonia
 ```
 
 
@@ -61,7 +72,7 @@ Your task is now to learn all about this variable and how it may contribute to t
 
 4. Create a dataframe with only your fish species.  
 ```{r}
-
+troutOnly <- sick %>% filter(species == "trout")
 ```
 
 
@@ -72,18 +83,24 @@ Your task is now to learn all about this variable and how it may contribute to t
 1:50 Class Section: https://docs.google.com/presentation/d/1CnL45KGLifZypKY9J5uAC8qoXEjEToFmxZSdiy6oKqQ/edit?usp=sharing
 
 ```{r}
+ggplot(troutOnly, aes(x = ammonia)) +
+  geom_histogram() +
+  labs(title = "trout + ammonia")
+
+# most common is around .027 but it could be different depending on their bin number. The correct answer is the value with the greatest frequency for their histogram. 
 
 ```
 
 6. What is the mean and standard deviation of your variable? Add to google slide deck. 
 ```{r}
+troutOnly %>% summarize(mean(ammonia), sd(ammonia))
 
 ```
 
 
 7. What is the motivating question? That is, what can your variable tell us about the sick fish? What data visualization will you use to answer this question?
 ```{r}
-
+# we want to know if oxygen concentration is related with the percentage of sick fish. I will use a scatterplot. 
 ```
 
 
@@ -93,7 +110,8 @@ PAUSE. SHARE YOUR QUESTION AND PROPOSED ANALYSIS WITH THE GROUP THAT IS STUDYING
 8. Create a visualization to analyze the relationship between fish sickness and your variable. Add this to the google slide deck.
 
 ```{r}
-
+ggplot(data = troutOnly, mapping = aes(x = ammonia, y= perc_sick)) +
+  geom_point()
 ```
 
 
@@ -103,11 +121,6 @@ TEMPERATURE GROUPS ONLY
 ```{r}
 
 ```
-
-
-
-
-
 
 
 
