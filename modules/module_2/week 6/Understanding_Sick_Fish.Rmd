@@ -21,14 +21,14 @@ We know that there are tanks whose temperature are below the critical threshold 
 Our ichthyologist friends told us that density often contributes to the spread of any disease present in a system. We want to look at how density relates to the number of sick fish. Because we are in Antarctica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacturer and shipment. We have tanks of many different sizes. We know the size of each tank and the number of fish, so we can calculate the density. (Density = number / volume).
 
 
-1. Create a variable in the data set for the percentage of sick fish per tank. Create a variable in the data set for the density of fish per tank. 
+1.Create a variable in the data set for the density of fish per tank. Create a variable in the data set for the percentage of sick fish per tank. 
 
 ```{r}
 
 ```
 
 
-2. Create a scatter plot to examine the relationship between density and the number of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the percentage of sick fish.
+2. Create a scatter plot to examine the relationship between density and the percentage of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the percentage of sick fish.
 
 ```{r}
 
@@ -42,7 +42,7 @@ In your group, discuss which of the following variables you'd like to examine in
 
 -   Oxygen concentration
 
--   Ammonia (NH3) concentration ###MUST BE LESS THAN 0.05, mean should be 0.01 mg/L
+-   Ammonia (NH3) concentration 
 
 
 PAUSE. CLASS DISCUSSION OF CHOICES. 
