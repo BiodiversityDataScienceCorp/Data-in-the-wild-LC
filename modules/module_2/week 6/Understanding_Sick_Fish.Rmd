@@ -66,7 +66,11 @@ Your task is now to learn all about this variable and how it may contribute to t
 
 
 5. Create a histogram of your variable. What is (approximately) the most common value of your variable? One person from each group: put a copy of this histogram to this shared google slide deck to show the class on Wednesday.
-https://docs.google.com/presentation/d/1AYbRlU9NB36EfF4R8C5_nTr0dQyTWpcAPTeSiW7XKhY/edit?usp=sharing 
+
+11:30 Class Section: https://docs.google.com/presentation/d/1AYbRlU9NB36EfF4R8C5_nTr0dQyTWpcAPTeSiW7XKhY/edit?usp=sharing 
+
+1:50 Class Section: https://docs.google.com/presentation/d/1CnL45KGLifZypKY9J5uAC8qoXEjEToFmxZSdiy6oKqQ/edit?usp=sharing
+
 ```{r}
 
 ```
