@@ -93,6 +93,14 @@ PAUSE. SHARE YOUR QUESTION AND PROPOSED ANALYSIS WITH THE GROUP THAT IS STUDYING
 ```
 
 
+TEMPERATURE GROUPS ONLY
+ 
+9. In the previous questions, you have examined fish sickness and temperature as a continuous variable. However, our data set also includes temperature as a categorical variable- is a given tank below the critical threshold for fish immune systems. If the column titled "below" is TRUE, then that tank is below the critical threshold. If the column titled "below" is FALSE, then that tank is above the critical threshold. Create a histogram that examines sick fish and the tank temperature as this categorical variable. 
+```{r}
+
+```
+
+
 
 
 
