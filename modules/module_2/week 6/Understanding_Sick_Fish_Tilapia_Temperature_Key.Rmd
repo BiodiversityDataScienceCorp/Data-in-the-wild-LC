@@ -62,7 +62,7 @@ PAUSE. CLASS DISCUSSION OF CHOICES.
 3. What is your variable and species?
 ```{r}
 # comment it out
-# trout and temperature
+# tilapia and temperature
 ```
 
 
@@ -72,7 +72,7 @@ Your task is now to learn all about this variable and how it may contribute to t
 
 4. Create a dataframe with only your fish species.  
 ```{r}
-troutOnly <- sick %>% filter(species == "trout")
+tilapiaOnly <- sick %>% filter(species == "tilapia")
 ```
 
 
@@ -83,9 +83,9 @@ troutOnly <- sick %>% filter(species == "trout")
 1:50 Class Section: https://docs.google.com/presentation/d/1CnL45KGLifZypKY9J5uAC8qoXEjEToFmxZSdiy6oKqQ/edit?usp=sharing
 
 ```{r}
-ggplot(troutOnly, aes(x = avg_daily_temp_F)) +
+ggplot(tilapiaOnly, aes(x = avg_daily_temp_F)) +
   geom_histogram() +
-  labs(title = "trout + temp")
+  labs(title = "tilapia + temp")
 
 # most common is around 59 but it could be different depending on their bin number. The correct answer is the value with the greatest frequency for their histogram. 
 
@@ -93,7 +93,7 @@ ggplot(troutOnly, aes(x = avg_daily_temp_F)) +
 
 6. What is the mean and standard deviation of your variable? Add to google slide deck. 
 ```{r}
-troutOnly %>% summarize(mean(avg_daily_temp_F), sd(avg_daily_temp_F))
+tilapiaOnly %>% summarize(mean(avg_daily_temp_F), sd(avg_daily_temp_F))
 
 ```
 
@@ -110,7 +110,7 @@ PAUSE. SHARE YOUR QUESTION AND PROPOSED ANALYSIS WITH THE GROUP THAT IS STUDYING
 8. Create a visualization to analyze the relationship between fish sickness and your variable. Add this to the google slide deck.
 
 ```{r}
-ggplot(data = troutOnly, mapping = aes(x = avg_daily_temp_F, y= perc_sick)) +
+ggplot(data = tilapiaOnly, mapping = aes(x = avg_daily_temp_F, y= perc_sick)) +
   geom_point()
 ```
 
@@ -125,19 +125,16 @@ TEMPERATURE GROUPS ONLY
 
 
 # with a histogram
-ggplot(data = troutOnly, mapping = aes(x = perc_sick, fill = below)) +
+ggplot(data = tilapiaOnly, mapping = aes(x = perc_sick, fill = below)) +
   geom_histogram(color = "black")
 
 # with a box plot
-ggplot(data = troutOnly, mapping = aes(x = below, y = perc_sick, fill = below)) +
+ggplot(data = tilapiaOnly, mapping = aes(x = below, y = perc_sick, fill = below)) +
   geom_boxplot(color = "black")
 
 # with a bar plot
-summaryData <- troutOnly %>% group_by(below) %>% summarize(meanSick = mean(perc_sick), sdSick = sd(perc_sick))
+summaryData <- tilapiaOnly %>% group_by(below) %>% summarize(meanSick = mean(perc_sick), sdSick = sd(perc_sick))
 summaryData
 ggplot(summaryData, aes(x = below, y = meanSick, fill = below)) +
   geom_bar(stat = "identity") +
   geom_errorbar(aes(ymin = meanSick - sdSick, ymax = meanSick + sdSick, width = 0.2))
-
-
-```
