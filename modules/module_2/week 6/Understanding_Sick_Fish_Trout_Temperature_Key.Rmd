@@ -27,6 +27,7 @@ Our ichthyologist friends told us that density often contributes to the spread o
 1.Create a variable in the data set for the density of fish per tank. Create a variable in the data set for the percentage of sick fish per tank. 
 
 ```{r}
+# 2 pts, 1 for each line of code
 sick <- sick %>% mutate(density = num_fish / tank_volume)
 
 sick <- sick %>% mutate(perc_sick = num_sick / num_fish)
@@ -36,6 +37,7 @@ sick <- sick %>% mutate(perc_sick = num_sick / num_fish)
 2. Create a scatter plot to examine the relationship between density and the percentage of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the percentage of sick fish.
 
 ```{r}
+# 2 pts, 1 for the correct plot and 1 for a comment 
 
 ggplot(data = sick, mapping = aes(density, perc_sick, color = species)) +
   geom_point()
@@ -61,6 +63,8 @@ PAUSE. CLASS DISCUSSION OF CHOICES.
 
 3. What is your variable and species?
 ```{r}
+# 1 pt
+
 # comment it out
 # trout and temperature
 ```
@@ -72,6 +76,8 @@ Your task is now to learn all about this variable and how it may contribute to t
 
 4. Create a dataframe with only your fish species.  
 ```{r}
+# 1 pt
+
 troutOnly <- sick %>% filter(species == "trout")
 ```
 
@@ -83,6 +89,9 @@ troutOnly <- sick %>% filter(species == "trout")
 1:50 Class Section: https://docs.google.com/presentation/d/1CnL45KGLifZypKY9J5uAC8qoXEjEToFmxZSdiy6oKqQ/edit?usp=sharing
 
 ```{r}
+
+# 2 pts, 1 for plot and 1 for a common value
+
 ggplot(troutOnly, aes(x = avg_daily_temp_F)) +
   geom_histogram() +
   labs(title = "trout + temp")
@@ -93,6 +102,7 @@ ggplot(troutOnly, aes(x = avg_daily_temp_F)) +
 
 6. What is the mean and standard deviation of your variable? Add to google slide deck. 
 ```{r}
+# 1pt 
 troutOnly %>% summarize(mean(avg_daily_temp_F), sd(avg_daily_temp_F))
 
 ```
@@ -110,6 +120,8 @@ PAUSE. SHARE YOUR QUESTION AND PROPOSED ANALYSIS WITH THE GROUP THAT IS STUDYING
 8. Create a visualization to analyze the relationship between fish sickness and your variable. Add this to the google slide deck.
 
 ```{r}
+# 1 pt
+
 ggplot(data = troutOnly, mapping = aes(x = avg_daily_temp_F, y= perc_sick)) +
   geom_point()
 ```
@@ -121,7 +133,7 @@ TEMPERATURE GROUPS ONLY
 ```{r}
 
 # okay so many ways to do this
-# do not grade them down if they don't have anything here
+# not for a grade
 
 
 # with a histogram
