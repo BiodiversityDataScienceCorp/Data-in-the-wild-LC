@@ -1,0 +1,41 @@
+---
+title: "seals-hw"
+output: html_document
+date: '2022-10-19'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Q1. (2 points) Describe null and alternative hypotheses for:
+
+-   The difference in means of seal count in Wilhelmenia vs. Marguarite bay
+-   the difference in means of fish count in Wilhelmenia vs. Marguarite bay
+
+Q2. (2 points) Generate helpful visualizations and descriptive statistics for the above data
+
+Q3. (4 points) Perform t-tests to evaluate your hypotheses, and interpret the results. Reject the null hypothesis if p\<0.05.
+
+### Answers
+
+Q1.
+
+$H_{0}$:
+
+$H_{a}$:
+
+Q2.
+
+```{r}
+
+
+
+```
+
+Q3.
+
+```{r}
+
+
+```

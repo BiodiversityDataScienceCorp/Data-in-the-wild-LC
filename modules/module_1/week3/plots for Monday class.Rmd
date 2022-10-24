@@ -1,0 +1,206 @@
+---
+title: "Plots for Monday class"
+output: html_notebook
+---
+
+```{r}
+
+library(palmerpenguins)
+
+penguins
+
+```
+
+```{r}
+
+
+adelie<-filter(.data=penguins, species=="Adelie")
+
+gentoo<-filter(.data=penguins, species=="Gentoo")
+
+chinstrap<-filter(.data=penguins, species=="Chinstrap")
+
+
+```
+
+
+
+
+
+```{r}
+
+
+billLengthsAllHist<-ggplot(data=penguins, mapping=aes(bill_length_mm))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of All Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAll.jpg",billLengthsAllHist)
+
+```
+
+
+
+
+
+```{r}
+
+bodyMassAllHist<-ggplot(data=penguins, mapping=aes(body_mass_g))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of All Penguin Body Mass", x="Body Mass (g)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BodyMassAll.jpg",bodyMassAllHist)
+
+```
+
+
+```{r}
+
+#Hists of Adelie bill length & mass
+
+billLengthsAdelieHist<-ggplot(data=adelie, mapping=aes(bill_length_mm))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Adelie Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
+
+
+
+bodyMassAdelieHist<-ggplot(data=adelie, mapping=aes(body_mass_g))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Adelie Penguin Body Mass", x="Body Mass (g)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
+
+
+```
+
+
+
+```{r}
+
+#Hists of Adelie bill length & mass
+
+billLengthsAdelieHist<-ggplot(data=adelie, mapping=aes(bill_length_mm))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Adelie Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
+
+
+
+bodyMassAdelieHist<-ggplot(data=adelie, mapping=aes(body_mass_g))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Adelie Penguin Body Mass", x="Body Mass (g)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
+
+
+```
+
+
+```{r}
+
+#Hists of Gentoo bill length & mass
+
+billLengthsGentooHist<-ggplot(data=gentoo, mapping=aes(bill_length_mm))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Gentoo Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BillLengthsGentoo.jpg",billLengthsGentooHist)
+
+
+
+bodyMassGentooHist<-ggplot(data=gentoo, mapping=aes(body_mass_g))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Gentoo Penguin Body Mass", x="Body Mass (g)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BodyMassGentoo.jpg",bodyMassGentooHist)
+
+
+```
+
+
+
+```{r}
+
+#Hists of Chinstrap bill length & mass
+
+billLengthsChinstrapHist<-ggplot(data=chinstrap, mapping=aes(bill_length_mm))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Chinstrap Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BillLengthsChinstrap.jpg",billLengthsChinstrapHist)
+
+
+
+bodyMassChinstrapHist<-ggplot(data=chinstrap, mapping=aes(body_mass_g))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Chinstrap Penguin Body Mass", x="Body Mass (g)", y="Count")
+
+ggsave( "modules/module_1/lessons/week3/plots/BodyMassChinstrap.jpg",bodyMassChinstrapHist)
+
+
+```
+
+
+
+```{r}
+
+#bill length stats by species
+
+penguinBillLengthStats<-penguins %>% group_by(species) %>% summarize(avgBillLength=mean(bill_length_mm, na.rm=TRUE), sdBillLength=sd(bill_length_mm, na.rm=TRUE))
+
+penguinBillLengthStats
+
+
+
+```
+
+```{r}
+
+#bar plot of bill lengths
+
+billLengthPlot<-ggplot(data=penguinBillLengthStats, mapping=aes(x=species, y=avgBillLength, fill=species))+
+  geom_bar(stat="identity", color="black")+
+  labs(title="Comparison of Average Bill Lengths by Species", y="Average Bill Length (mm)", x="Species")+
+  geom_errorbar(aes(ymin=avgBillLength-sdBillLength, ymax=avgBillLength+sdBillLength), width=.2,
+                 position=position_dodge(.9)) 
+
+
+billLengthPlot
+
+ggsave("modules/module_1/lessons/week3/plots/BillLengthComparison.jpg",billLengthPlot )
+
+```
+
+
+
+
+```{r}
+
+#body mass stats by species
+
+penguinMassStats<-penguins %>% group_by(species) %>% summarize(avgBodyMass=mean(body_mass_g, na.rm=TRUE), sdBodyMass=sd(body_mass_g, na.rm=TRUE))
+
+penguinMassStats
+
+
+
+```
+
+```{r}
+
+#bar plot of body mass
+
+bodyMassPlot<-ggplot(data=penguinMassStats, mapping=aes(x=species, y=avgBodyMass, fill=species))+
+  geom_bar(stat="identity", color="black")+
+  labs(title="Comparison of Average Body Mass by Species", y="Average Body Mass (g)", x="Species")+
+  geom_errorbar(aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width=.2,
+                 position=position_dodge(.9)) 
+
+
+bodyMassPlot
+
+ggsave("modules/module_1/lessons/week3/plots/BodyMassComparison.jpg",bodyMassPlot )
+
+```

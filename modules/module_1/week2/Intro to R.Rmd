@@ -1,0 +1,299 @@
+---
+title: "R Notebook"
+author: "Jeremy McWilliams"
+output: html_notebook
+---
+
+# Introduction to R and Data Concepts
+
+## September 7th, 2022
+
+### Goals
+
+-   Gain some familiarity and comfort with rstudio
+-   Review how to assign variables
+-   Learn about and use functions
+-   Learn about and use vectors
+-   Write code to work with a data set, and calculate some descriptive statistics
+
+### Arithmetic
+
+The grey rectangle below is a "code chunk". Everything withing the grey area is interpreted as R code. To run the code, click the green triangle in the upper-right corner.
+
+In this example, R can perform basic math:
+
+```{r}
+
+2+2
+
+```
+
+Now it's your turn. Enter code below to subtract ten from twenty-two:
+
+```{r}
+
+22-10
+
+```
+
+#### Assigning Variables
+
+We'll be working a lot with variables throughout this semester. A variable is a name you give to some value. The value could be a single number, a word, a bunch of words, an entire data set, etc.
+
+Most scripting languages use the "=" sign to assign a value to a variable, but R uses "\<-".
+
+```{r}
+# assigns 10 to x
+x<-10
+
+```
+
+It's important to note that creating a new variable using code above doesn't give you any output. Often it's a good idea to print your variable to the screen, just to confirm it worked the way you intended:
+
+```{r}
+# prints x
+x
+
+#Anything preceded by a "#" is a "comment". It does not get executed as code.
+#Comments can be super helpful to provide info on your code.
+```
+
+Now it's your turn. Create a variable "y", set it equal to 7+9, and then print it out:
+
+```{r}
+
+y<-7+9
+y
+
+
+
+
+```
+
+#### Functions
+
+Coding languages, including R, have functions that help you quickly execute common tasks. Functions typically take the form of:
+
+functionName(argument1, argument2, etc....)
+
+*Arguments* are the inputs you send to a function, so it has all the information it needs to perform its operation.
+
+For example, the function `sqrt(number)` takes the square root of a number. This lets us quickly compute the answer, rather than having to write the formula for a square root.
+
+```{r}
+sqrt(9)
+```
+
+YOUR TURN: In the chunk below, create a variable `z`, set it equal to the square root of 90, and print it out:
+
+```{r}
+z<-sqrt(90)
+z
+
+```
+
+One nice thing about rstudio is that you can readily access documentation for functions by using the "help" command:
+
+```{r}
+help(sqrt)
+```
+
+The documentation appears in the lower right window in the "help" tab.
+
+One key question: how do you know what functions exist, and what they do?\
+Answer: you Google what you're trying to do! In the case of R, you might search "How do I do 'x' in R?"
+
+Let's say you are interested in calculating the absolute value (positive distance from zero) of -35 in R. Take a moment with your group/neighbors, and try to find the answer by searching the internet. In the code chunk below, use the function you found to compute this calculation:
+
+```{r}
+# compute the absolute value of -35
+
+
+
+```
+
+#### Vectors
+
+So far we've created variables that have single values (e.g. `x<-7`), but there are often cases where we need to assign *multiple values* to a variable. These types of variables are called *vectors*.
+
+In order to create a vector, you can use the "c" function (c stands for "combine"). Here's an example:
+
+```{r}
+
+myFirstVector<-c(3,7,1,10)
+
+myFirstVector
+
+```
+
+Now it's your turn. Create a vector called `mySecondVector`, assign the values 8, -11, 100, 35 to it, and print it to the screen:
+
+```{r}
+# use the "c" function to create mySecondVector:
+
+
+```
+
+Before moving on, let's talk a little about variable naming conventions. We started out using `x`, `y`, and `z` when learning about variables. That technically works, but it's better practice to be more descriptive in your variable names. The examples above and below use a syntax called "camel case". This allows you to string words together without spaces, but preserves quick readability. From this point on, we're going to create variables with camel case - you should too!
+
+![](camelCase.png){width="400"}
+
+It may not be immediately clear what the utility of vectors is, so let's take a look at a practical use case. Below is a vector containing the responses from you and your classmates (and U of Arizona students) on self-reported fishing skill (1 being low, 5 being high):
+
+```{r}
+
+
+fishingSkill<-c(1,2,2,1,1,1,1,2,2,5,1,2,2,1,5,3,4,4,4,2,1,2,2,3,2,1,2,2,2,1,5,2,3,1,4,5,2,2,2,1,1,1,1,2,3,1,1,2,1,3,1,1,1,1,2,2,5,3,1,1,1,1,2,1,3,2,5,1,2,3,3,2,3,5,2)
+
+fishingSkill
+
+```
+
+Let's say we're interested in finding the average of all the responses. We can do this by use the `mean` function in R: (we'll dive more into descriptive statistics next week, and how they differ from inferential)
+
+```{r}
+
+avgFishingSkill<-mean(fishingSkill)
+
+avgFishingSkill
+
+
+```
+
+We can also calculate the median (the "middle" value, when data is in numerical order) with the `median` function:
+
+```{r}
+
+medianFishingSkill<-median(fishingSkill)
+
+medianFishingSkill
+
+```
+
+We can also calculate the standard deviation (a measurement of how spread apart the data is):
+
+```{r}
+sdFishingSkill<-sd(fishingSkill)
+
+sdFishingSkill
+```
+
+Now it's your turn. Given the vector below of self-reported cooking skill ranking, calculate its mean, median, and standard deviation:
+
+```{r}
+
+cookingSkill<-c(4,5,4,1,2,5,4,4,4,4,3,2,2,2,4,4,4,3,3,5,3,3,4,4,5,5,3,4,3,3,4,4,3,4,1,4,3,4,1,4,2,3,2,4,2,2,2,4,4,1,5,3,3,4,2,4,2,3,3,2,1,3,4,2,5,5,3,5,4,2,4,4,3,3,4,4)
+
+# calculate the mean
+
+#calculate median
+
+# calculate the standard deviation
+
+
+
+```
+
+### Working with a data set
+
+One of the most common uses of R is to load a data set into R as a variable, and then use that data to ask and answer questions with code. Let's start off by loading a package called the Tidyverse. The Tidyverse is a series of functions written by data scientists to make working with data a little easier. We can load it by running the following command:
+
+```{r}
+
+library(tidyverse)
+
+
+```
+
+Notice in the Files tab in the lower-right window, there is a file titled teamAntarcticaData.csv. This is a copy of the [spreadsheet data](https://docs.google.com/spreadsheets/d/1GDT4v6cu41-cfhNkzyrrobsuAbhzlW8GEqJxdAJZDLM/edit#gid=1722229028){target="_blank"} from the Google form. Below, we can assign the entire data set to a variable using the `read_csv` function:
+
+```{r}
+#load the data
+teamAntarcticaData<-read_csv("teamAntarcticaData.csv")
+
+#print to screen
+teamAntarcticaData
+
+
+```
+
+Earlier in this exercise we looked at the array of responses for both fishing and cooking aptitude, though in both cases the vectors were hand-typed (by me). A much more common way to acquire, and then use, a vector of data is to directly query the data set. You can get a vector (a.k.a. column) of data by using the following syntax:
+
+`dataSet$columnName`
+
+Let's get all responses for fishing aptitude directly from the data set:
+
+```{r}
+
+fishing<-teamAntarcticaData$fishing
+
+fishing
+
+```
+
+And just like before, we can calculate the mean, median, and standard deviation:
+
+```{r}
+
+mean(fishing)
+
+median(fishing)
+
+sd(fishing)
+     
+     
+
+```
+
+Now it's your turn:
+
+Use the data set to get the column values for tolerance of cold (hint: after typing the \$, use auto-complete to select the column name). Calculate its mean, median, and standard deviation.
+
+```{r}
+
+# create a vector that contains the column values for cold tolerance
+
+
+
+#calculate the mean
+
+
+#calculate the median
+
+
+# calculate the standard deviation
+
+
+
+```
+
+Now do the same for bedside manner:
+
+```{r}
+
+# create a vector that contains the column values for bedside manner
+
+
+
+#calculate the mean
+
+
+#calculate the median
+
+
+# calculate the standard deviation
+
+```
+
+Now create a vector to get the responses for parka color. How is this data different from the other examples we've seen? What can we learn from the data?
+
+```{r}
+
+
+
+
+
+
+```
+
+When you're finished, click on problem-set.Rmd. **problem-set.Rmd is a homework assignment, and is due at midnight on Thursday, September 8th via Moodle.**

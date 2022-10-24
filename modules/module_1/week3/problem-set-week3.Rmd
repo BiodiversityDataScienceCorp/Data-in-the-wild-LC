@@ -1,0 +1,86 @@
+---
+title: "Analyzing Data with R - Problem Set"
+output: pdf_document
+---
+
+# Problem Set for Analyzing Data with R
+
+### Your Name
+
+### Date
+
+**DUE THURSDAY, Sept 15th AT MIDNIGHT**
+
+Instructions:
+
+-   Replace Your Name and Date above with your name and the current date.
+
+-   Complete the problem set below.
+
+-   Download the file to your computer: Check the checkbox next to the file in the lower-right window, click the gear icon, and select Export.
+
+-   Rename the file with this convention: Firstname-Lastname-problem-set-week3.Rmd (e.g. Jane-Doe-problem-set-week3.Rmd
+
+-   Upload this file to Moodle.\
+    \
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+Run this code chunk first, to make the survey data available as the variable `classData`:
+
+```{r}
+classData<-read_csv("teamAntarcticaData.csv")
+```
+
+1.  Create a subset of `classData` of students who responded less than 3 on the fishing question, called `poorFishing`. How many reported less than 3?
+
+```{r}
+
+
+
+```
+
+2.  Describe logical operators, and how they can be used in the `filter` function:
+
+```{r}
+
+
+
+
+```
+
+3.  How many Lewis & Clark students voted to have the bear as the team flag? Show code below how you would derive your answer:
+
+```{r}
+
+
+
+
+```
+
+4.  What is the "pipe" in R? What is it used for?
+
+```{r}
+
+
+
+```
+
+5.  Determine the mean and standard deviation of self-reported bedside manner, comparing Lewis & Clark to University of Arizona students:
+
+```{r}
+
+
+
+
+```
+
+6.  Create a data set showing the percentage of votes for team flag animal, *just* for Lewis & Clark students:
+
+```{r}
+
+
+
+
+
+```
