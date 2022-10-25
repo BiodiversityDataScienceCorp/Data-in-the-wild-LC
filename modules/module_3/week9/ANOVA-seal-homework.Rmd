@@ -50,10 +50,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the most leopard seals? Which has the least? (4pts)
+5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the highest average of seals? Which bay has the lowest average? (4pts)
 
 ```{r}
 # summary stats
+
 
 # bay with lowest mean number of seals:
 # bay with the greatest mean number of seals: 
@@ -66,9 +67,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? What is our alpha level (cutoff value for p)? Do you accept or reject the null hypothesis? What does that mean? (5pts)
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? What is our critical p-value we have been using in this class (called the alpha level)? Do you accept or reject the null hypothesis? What does that mean? (5pts)
 
 ```{r}
+# p-value from ANOVA table:
+# F-statistic from ANOVA table:
+# Critical p-value (alpha level):
+# Do you accept or reject the null?
+# What it means:
 
 
 ```
