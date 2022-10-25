@@ -1,0 +1,121 @@
+---
+title: "Module 3: ANOVA"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Statistical inference and ANOVAs
+
+## Wrapping up t-tests
+
+Last week we used t-tests to think about which bay we should go fishing to minimize our impact on leopard seals.
+
+1.  Are the bays equal in their fish populations?
+
+```{r}
+
+```
+
+Response:
+
+2.  Are the bays equal in their leopard seal populations?
+
+```{r}
+
+```
+
+Response:
+
+3.  What should we do?
+
+```{r}
+
+```
+
+### ANOVA: **AN**alysis **O**f **VA**riance
+
+### When can I use an ANOVA? Why would I?
+
+-   Independent variable is categorical and the response is numerical
+
+-   Goal: to compare means among groups
+
+### Assumptions of ANOVA
+
+-   Data are "normally distributed" =\> look at the histogram
+-   Data are "equally varied" =\> standard deviations reasonably similar
+-   Samples are independent of one another
+
+### The null and alternative hypotheses
+
+$H_{0}$ (null hypothesis) - The means of the populations we sampled from **are** **all equal:** $\mu{1} = \mu{2} = ... = \mu{i}$
+
+$H_{a}$ (alternative hypothesis) - The means of the populations we sampled from **are not all equal**
+
+### Let's jump in with an example
+
+We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations. 
+
+Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sil
+
+We are going to examine the fish populations in class, and you will work with the leapard seals for your homework.
+
+1. What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent? 
+```{r}
+
+```
+
+2. What are our null and alternative hypotheses?
+```{r}
+
+```
+
+3. Load tidyverse and read in the data
+```{r}
+
+```
+
+It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
+
+4. 
+```{r}
+
+```
+
+
+5. Now let's calculate some summary statistics. What do you notice? 
+```{r}
+
+```
+
+
+6. Finally, let's code for the ANOVA.
+```{r}
+
+```
+
+7. How do we interpret this ANOVA?
+```{r}
+
+```
+
+8. What is our recommendation for fishing based only off of this information?
+```{r}
+
+```
+
+
+ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it. 
+```{r}
+
+```
+
+
+
+
+Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844> (p254) A Primer of Ecological Statistics: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844>
