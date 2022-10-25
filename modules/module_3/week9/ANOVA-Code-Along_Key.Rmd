@@ -1,7 +1,8 @@
 ---
-title: "Module 3: ANOVA"
+title: 'Module 3: ANOVA'
 author: "Mila Pruiett"
 output:
+  pdf_document: default
   html_document: default
 ---
 
@@ -45,7 +46,7 @@ Response:
 3.  What should we do?
 
 ```{r}
-How to report a t test: We can reject null and conclude x bc (DF< alpha, p)
+# How to report a t test: We can reject null and conclude x bc (DF< alpha, p)
 
 ```
 

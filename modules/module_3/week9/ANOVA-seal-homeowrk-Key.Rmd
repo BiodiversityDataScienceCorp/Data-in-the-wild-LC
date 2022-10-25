@@ -1,7 +1,8 @@
 ---
-title: "Module 3: ANOVA"
+title: 'Module 3: ANOVA'
 author: "Mila Pruiett"
 output:
+  pdf_document: default
   html_document: default
 ---
 
