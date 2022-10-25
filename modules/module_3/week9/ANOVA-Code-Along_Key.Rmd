@@ -23,6 +23,8 @@ fish <- read_csv("arctic-fish.csv")
 
 ggplot(fish, aes(bay, num_fish, fill = bay)) +
   geom_boxplot()
+
+t.test(data = fish, num_fish ~ bay)
 ```
 
 Response:
@@ -31,6 +33,11 @@ Response:
 
 ```{r}
 seals <- read_csv("arctic-seals.csv")
+
+ggplot(seals, aes(bay, num_seals, fill = bay)) +
+  geom_boxplot()
+
+t.test(data = seals, num_seals ~ bay)
 ```
 
 Response:
@@ -38,6 +45,7 @@ Response:
 3.  What should we do?
 
 ```{r}
+How to report a t test: We can reject null and conclude x bc (DF< alpha, p)
 
 ```
 
@@ -67,7 +75,7 @@ We have figured out the best option for minimizing our impact on leopard seals w
 
 Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sil
 
-We are going to examine the fish populations in class, and you will work with the leapard seals for your homework.
+We are going to examine the fish populations in class, and you will work with the leopard seals for your homework.
 
 1. What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent? 
 ```{r}
@@ -81,30 +89,38 @@ We are going to examine the fish populations in class, and you will work with th
 
 3. Read in the data
 ```{r}
-
+fishManyBays <- read_csv("antarctic_fish_many_bays.csv")
 ```
 
 It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
 
 4. 
 ```{r}
-
+ggplot(data = fishManyBays, aes(x = num_fish)) + 
+  geom_histogram()  +
+  facet_wrap(~ bay)
 ```
 
 
 5. Now let's calculate some summary statistics. What do you notice? 
 ```{r}
-
+fishSummary <- fishManyBays %>% group_by(bay) %>% summarize(meanFish = mean(num_fish), standDevFish = sd(num_fish))
+fishSummary
 ```
 
 6. Let's create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different? 
 ```{r}
-
+ggplot(data = fishSummary, aes(bay, meanFish, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanFish-standDevFish, ymax = meanFish + standDevFish), 
+                 data = fishSummary, width = 0.2) 
 ```
 
 
-7. Finally, let's code for the ANOVA.
+7. Finally, let's code for the ANOVA. The syntax is dependent variable ~ independent variable
 ```{r}
+fishModel <- aov(data = fishManyBays, num_fish ~ bay)
+summary(fishModel)
 
 ```
 
@@ -121,7 +137,7 @@ It's always a good idea to visualize your data first. This gives you some perspe
 
 ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it. 
 ```{r}
-
+TukeyHSD(fishModel)
 ```
 
 

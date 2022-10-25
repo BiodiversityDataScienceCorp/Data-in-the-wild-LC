@@ -1,0 +1,63 @@
+---
+title: "Module 3: ANOVA"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+Your name: Date:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Main Question: We want to know if the population of leopard seals differs between the bays.**
+
+1.  To answer this question, which variable in the data set is the independent variable? Which is the dependent?
+
+```{r}
+# independent is
+# dependent is
+
+```
+
+2.  What are our null and alternative hypotheses?
+
+```{r}
+# Null: 
+
+# Alternative: 
+
+```
+
+3.  Load tidyverse and read in the data
+
+```{r}
+
+
+```
+
+4.  Create a histogram of the number of seals to see the distribution. Use facet_wrap(\~ bay) to create 6 histograms, one for each bay.
+
+```{r}
+
+```
+
+5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the most leopard seals? Which has the least?
+
+```{r}
+
+```
+
+6.  Run an ANOVA to test if the mean number of seals varies between the bays.
+
+```{r}
+
+```
+
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? Do you accept or reject the null hypothesis? What does that mean?
+
+```{r}
+
+
+```

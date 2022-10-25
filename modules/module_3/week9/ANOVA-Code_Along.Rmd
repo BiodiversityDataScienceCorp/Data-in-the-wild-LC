@@ -18,7 +18,13 @@ Last week we used t-tests to think about which bay we should go fishing to minim
 1.  Are the bays equal in their fish populations?
 
 ```{r}
+library(tidyverse)
+fish <- read_csv("arctic-fish.csv")
 
+ggplot(fish, aes(bay, num_fish, fill = bay)) +
+  geom_boxplot()
+
+t.test(data = fish, num_fish ~ bay)
 ```
 
 Response:
@@ -26,7 +32,12 @@ Response:
 2.  Are the bays equal in their leopard seal populations?
 
 ```{r}
+seals <- read_csv("arctic-seals.csv")
 
+ggplot(seals, aes(bay, num_seals, fill = bay)) +
+  geom_boxplot()
+
+t.test(data = seals, num_seals ~ bay)
 ```
 
 Response:
@@ -36,6 +47,8 @@ Response:
 ```{r}
 
 ```
+
+![Cute Seal](babySeal.jpg)
 
 ### ANOVA: **AN**alysis **O**f **VA**riance
 
@@ -59,68 +72,72 @@ $H_{a}$ (alternative hypothesis) - The means of the populations we sampled from 
 
 ### Let's jump in with an example
 
-We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations. 
+We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations.
 
-Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sil
+Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sulzberger, and Iceberg.
 
 We are going to examine the fish populations in class, and you will work with the leapard seals for your homework.
 
-1. What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent? 
+1.  What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent?
+
 ```{r}
 
 ```
 
-2. What are our null and alternative hypotheses?
+2.  What are our null and alternative hypotheses?
+
 ```{r}
 
 ```
 
-3. Load tidyverse and read in the data
+3.  Load tidyverse and read in the data
+
 ```{r}
 
 ```
 
 It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
 
-4. 
+4.  
+
 ```{r}
 
 ```
 
+5.  Now let's calculate some summary statistics. What do you notice?
 
-5. Now let's calculate some summary statistics. What do you notice? 
 ```{r}
 
 ```
 
-6. Let's create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different? 
+6.  Let's create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different?
+
 ```{r}
 
 ```
 
+7.  Finally, let's code for the ANOVA.
 
-7. Finally, let's code for the ANOVA.
 ```{r}
 
 ```
 
-8. How do we interpret this ANOVA?
+8.  How do we interpret this ANOVA?
+
 ```{r}
 
 ```
 
-9. What is our recommendation for fishing based only off of this information?
+9.  What is our recommendation for fishing based only off of this information?
+
 ```{r}
 
 ```
 
+ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it.
 
-ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it. 
 ```{r}
 
 ```
-
-
-
 
 Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844> (p254) A Primer of Ecological Statistics: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844>
