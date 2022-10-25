@@ -15,12 +15,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Main Question: We want to know if the population of leopard seals differs between the bays.**
 
-1.  To answer this question, which variable in the data set is the independent variable? Which is the dependent? (2pts)
+1.  To answer this question, which variable in the data set is the independent variable? Which is the dependent? Which variable is categorical? Which variable is numeric? (4pts)
 
 ```{r}
 # independent is
 
 # dependent is
+
+# categorical is
+
+# numerical is 
 
 ```
 
@@ -33,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-3.  Load tidyverse and read in the data (2pts)
+3.  Load tidyverse and read in the data, called "antarctic_seals_many_bays.csv" (2pts)
 
 ```{r}
 
@@ -49,16 +53,20 @@ knitr::opts_chunk$set(echo = TRUE)
 5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the most leopard seals? Which has the least? (4pts)
 
 ```{r}
+# summary stats
+
+# bay with lowest mean number of seals:
+# bay with the greatest mean number of seals: 
 
 ```
 
-6.  Run an ANOVA to test if the mean number of seals varies between the bays. (4pts)
+6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
 
 ```{r}
 
 ```
 
-7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? Do you accept or reject the null hypothesis? What does that mean? (4pts)
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? What is our alpha level (cutoff value for p)? Do you accept or reject the null hypothesis? What does that mean? (5pts)
 
 ```{r}
 

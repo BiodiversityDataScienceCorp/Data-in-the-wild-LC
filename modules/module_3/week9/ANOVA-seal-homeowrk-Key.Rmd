@@ -1,0 +1,81 @@
+---
+title: "Module 3: ANOVA"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+Your name: Mila :)
+
+Date:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Main Question: We want to know if the population of leopard seals differs between the bays.**
+
+1. To answer this question, which variable in the data set is the independent variable? Which is the dependent? Which variable is categorical? Which variable is numeric? (4pts)
+
+```{r}
+# independent is the bay
+
+# dependent is the number of seals
+
+# categorical is bay
+
+# numerical is number of seals
+
+```
+
+2.  What are our null and alternative hypotheses? (2pts)
+
+```{r}
+# Null: The mean number of leapord seals is the same at each of the bays
+
+# Alternative: The mean number of leapord seals is not the same at all of the bays. At least one is different.  
+
+```
+
+3. Load tidyverse and read in the data, called "antarctic_seals_many_bays.csv" (2pts)
+
+```{r}
+library(tidyverse)
+sealData <- read_csv("antarctic_seals_many_bays.csv")
+
+```
+
+4.  Create a histogram of the number of seals to see the distribution. Use facet_wrap(\~ bay) to create 6 histograms, one for each bay. (2pts)
+
+```{r}
+ggplot(sealData, aes(num_seals)) +
+  geom_histogram() +
+  facet_wrap(~bay)
+```
+
+5. Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the most leopard seals? Which has the least? (4pts)
+
+```{r}
+sealData %>% group_by(bay) %>% summarize(mean(num_seals), sd(num_seals))
+# bay with lowest mean number of seals: Sulzberger
+# bay with the greatest mean number of seals: Hope
+```
+
+6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
+
+```{r}
+sealModel <- aov(data = sealData, num_seals ~ bay)
+summary(sealModel)
+
+```
+
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? What is our alpha level (cutoff value for p)? Do you accept or reject the null hypothesis? What does that mean? (5pts)
+
+```{r}
+# the p-value is smaller than 2 x 10 ^ - 16 
+# the f-stat is 1129
+# I reject the null hypothesis because the p-value of 2e-16 is smaller than my alpha of 0.05
+# this means that at least one of the mean number of leopard seals is different in one of the bays
+
+
+```
