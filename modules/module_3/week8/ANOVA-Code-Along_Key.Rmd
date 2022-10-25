@@ -18,7 +18,11 @@ Last week we used t-tests to think about which bay we should go fishing to minim
 1.  Are the bays equal in their fish populations?
 
 ```{r}
+library(tidyverse)
+fish <- read_csv("arctic-fish.csv")
 
+ggplot(fish, aes(bay, num_fish, fill = bay)) +
+  geom_boxplot()
 ```
 
 Response:
@@ -26,7 +30,7 @@ Response:
 2.  Are the bays equal in their leopard seal populations?
 
 ```{r}
-
+seals <- read_csv("arctic-seals.csv")
 ```
 
 Response:
@@ -75,7 +79,7 @@ We are going to examine the fish populations in class, and you will work with th
 
 ```
 
-3. Load tidyverse and read in the data
+3. Read in the data
 ```{r}
 
 ```

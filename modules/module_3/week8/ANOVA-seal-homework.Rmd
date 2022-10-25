@@ -1,0 +1,58 @@
+---
+title: "Module 3: ANOVA"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+Your name:
+Date:
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent? 
+```{r}
+
+```
+
+2. What are our null and alternative hypotheses?
+```{r}
+
+```
+
+3. Load tidyverse and read in the data
+```{r}
+
+```
+
+It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
+
+4. 
+```{r}
+
+```
+
+
+5. Now let's calculate some summary statistics. What do you notice? 
+```{r}
+
+```
+
+
+6. Finally, let's code for the ANOVA.
+```{r}
+
+```
+
+7. How do we interpret this ANOVA?
+```{r}
+
+```
+
+8. What is our recommendation for fishing based only off of this information?
+```{r}
+
+```
