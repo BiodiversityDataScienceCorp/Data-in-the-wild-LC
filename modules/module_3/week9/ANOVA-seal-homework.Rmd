@@ -67,11 +67,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-statistic? What is our critical p-value we have been using in this class (called the alpha level)? Do you accept or reject the null hypothesis? What does that mean? (5pts)
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-value? What is our critical p-value we have been using in this class (called the alpha level)? Do you accept or reject the null hypothesis? What does that mean, specifically for comparing the means of the data (you should reference "bay" and "population" in your answer? (5pts)
 
 ```{r}
 # p-value from ANOVA table:
-# F-statistic from ANOVA table:
+# F-value from ANOVA table:
 # Critical p-value (alpha level):
 # Do you accept or reject the null?
 # What it means:
