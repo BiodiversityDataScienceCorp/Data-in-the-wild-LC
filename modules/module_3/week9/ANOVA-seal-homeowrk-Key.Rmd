@@ -57,9 +57,10 @@ ggplot(sealData, aes(num_seals)) +
 5. Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the most leopard seals? Which has the least? (4pts)
 
 ```{r}
-sealData %>% group_by(bay) %>% summarize(mean(num_seals), sd(num_seals))
+sealSummary <- sealData %>% group_by(bay) %>% summarize(meanSeals = mean(num_seals), sdSeals = sd(num_seals))
 # bay with lowest mean number of seals: Sulzberger
 # bay with the greatest mean number of seals: Hope
+
 ```
 
 6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
