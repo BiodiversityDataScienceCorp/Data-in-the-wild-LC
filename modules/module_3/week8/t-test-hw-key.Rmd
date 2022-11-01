@@ -1,0 +1,80 @@
+---
+title: "t-test-hw-Key"
+author: "Mila Pruiett"
+date: "2022-11-01"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Q1. (2 points) Describe null and alternative hypotheses for:
+
+-   The difference in means of seal count in Wilhelmenia vs. Marguarite bay
+-   the difference in means of fish count in Wilhelmenia vs. Marguarite bay
+
+Q2. (2 points) Generate helpful visualizations and descriptive statistics for the above data
+
+Q3. (4 points) Perform t-tests to evaluate your hypotheses, and interpret the results. Reject the null hypothesis if p\<0.05.
+
+### Answers
+
+Q1.
+
+$H_{0}$: There is no difference in the mean seal count in Wilhelmia and Marguarite bay.
+        There is no difference in the mean fish count in Wilhelmia and Marguarite bay.
+
+
+$H_{a}$:There is a difference in the mean seal count in Wilhelmia and Marguarite bay.
+        There is a difference in the mean fish count in Wilhelmia and Marguarite bay.
+
+Q2.
+
+```{r}
+library("tidyverse")
+seals <- read_csv("arctic-seals.csv")
+fish <- read_csv("arctic-fish.csv")
+
+# descriptive stats
+summarySeals <- seals %>% group_by(bay) %>% summarize(mean(num_seals), sd(num_seals))
+summaryFish <- fish %>% group_by(bay) %>% summarize(mean(num_fish), sd(num_fish))
+
+# data visualization: best to do a boxplot or bar chart
+sealsPlot <- seals %>% 
+  ggplot(aes(bay, num_seals, fill= bay)) +
+  geom_boxplot() +
+  xlab("Bay Identity") +
+  ylab("Number of Seals")
+
+fishPlot <- fish %>% ggplot(aes(bay, num_fish, fill = bay)) +
+  geom_boxplot() +
+  xlab("Bay Identity") +
+  ylab("Number of Fish")
+
+
+summarySeals
+summaryFish
+sealsPlot
+fishPlot
+
+```
+
+Q3.
+
+```{r}
+# t test for seals
+sealsT <- t.test(data = seals, num_seals ~ bay)
+sealsT
+# Interpretation: The p-value is 0.0000272, which is less than our alpha level of 0.05, so we can reject the null. 
+# We conclude that the mean number of seals is different between Marguarite and Wilhelmia Bay
+
+# t test for fish
+fishT <- t.test(data = fish, num_fish ~ bay)
+fishT
+# Interpretation: The p-value was 0.08, which is greater than our alpha level of 0.05, so we cannot reject the null.
+# We conclude that the mean number of fish is not different between Marguarite and Wilhelmia Bay.
+
+```

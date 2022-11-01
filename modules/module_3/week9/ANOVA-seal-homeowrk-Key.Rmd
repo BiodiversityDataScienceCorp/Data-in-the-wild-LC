@@ -61,6 +61,13 @@ sealSummary <- sealData %>% group_by(bay) %>% summarize(meanSeals = mean(num_sea
 # bay with lowest mean number of seals: Sulzberger
 # bay with the greatest mean number of seals: Hope
 
+ggplot(data = sealSummary, aes(bay, meanSeals, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanSeals-sdSeals, ymax = meanSeals + sdSeals), 
+              width = 0.2)  +
+  xlab("Bay Name") +
+  ylab("Mean Number of Seals") +
+  ggtitle("Mean number of seals per bay")
 ```
 
 6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
@@ -81,3 +88,47 @@ summary(sealModel)
 
 
 ```
+
+
+Mila making figure for class: tukeys results on graph
+```{r}
+generate_label_df <- function(TUKEY, variable){
+
+  # Extract labels and factor levels from Tukey post-hoc 
+  Tukey.levels <- TUKEY[[variable]][,4]
+  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+
+  #I need to put the labels in the same order as in the boxplot :
+  Tukey.labels$treatment=rownames(Tukey.labels)
+  Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+  return(Tukey.labels)
+}
+
+sealsManyBays2 <- sealsManyBays %>% select(num_seals, bay)
+
+model=lm(sealsManyBays2$num_seals ~ sealsManyBays2$bay)
+ANOVA=aov(model)
+
+# Tukey test to study each pair of treatment :
+TUKEY <- TukeyHSD(x=ANOVA, 'sealsManyBays2$bay', conf.level=0.95)
+
+labels<-generate_label_df(TUKEY , "sealsManyBays2$bay")  #generate labels using function
+
+names(labels)<-c('Letters','bay')#rename columns for merging
+
+yvalue<-aggregate(.~ bay, data=sealsManyBays2, mean) # obtain letter position for y axis using means
+
+final<-merge(labels, yvalue) #merge dataframes
+
+ggplot(sealsManyBays2, aes(x = bay, y = num_seals, fill = bay)) +
+  geom_blank() +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  labs(x = 'Bay', y = 'Number of Seals') +
+  ggtitle("Differences in the number of seals by bay from Tukey's HSD")+
+  theme(plot.title = element_text(hjust = 0.5, face='bold')) +
+  geom_boxplot(stat = "boxplot") +
+  geom_text(data = final, aes(x = bay, y = num_seals, label = Letters) ,vjust=-3.5,hjust=-.5) +
+  theme(plot.title = element_text(vjust=-0.6))
+```
+
