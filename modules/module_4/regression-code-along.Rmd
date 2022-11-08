@@ -15,9 +15,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 We want to build a road to our fishing site, while minimizing our impact on the delicate antarctic ecosystem. For today's lesson, we are going to focus on antarctic hairgrass, one of only two flowering species of plants on the continent.
 
-Female sporogenesis in the native Antarctic grass Deschampsia antarctica Desv. - Scientific Figure on ResearchGate. Available from: <https://www.researchgate.net/figure/Morphology-of-Antarctic-hair-grass-Deschampsia-antarctica-a-A-small-cluster-of-D_fig1_304660866> [accessed 8 Nov, 2022] ![Hairgrass plant and flowering structures](antarctic-hairgrass-figure.png)
+<https://www.researchgate.net/figure/Morphology-of-Antarctic-hair-grass-Deschampsia-antarctica-a-A-small-cluster-of-D_fig1_304660866>
 
-We want to know what environmental conditions are associated with hairgrass, so we can build a road where those conditions are. It would take far too long to survey every square inch of land between our base and our fishing spot, so we are going to build a model based on some samples of where hairgrass is found to predict where else it might be.
+![Hairgrass plant and flowering structures](antarctic-hairgrass-figure.png)
+
+We want to know what environmental conditions are associated with hairgrass, so we can build a road where those conditions are not. It would take far too long to survey every square inch of land between our base and our fishing spot, so we are going to build a model based on some samples of where hairgrass is found to predict where else it might be.
 
 We collected data for one month on key components of the hairgrass' environment
 
@@ -131,3 +133,9 @@ So what can we conclude about soil pH and hairgrass density?
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 
 If there is time, move on to nitrogen content.
+
+Create a scatterplot of nitrogen content
+
+```{r}
+
+```
