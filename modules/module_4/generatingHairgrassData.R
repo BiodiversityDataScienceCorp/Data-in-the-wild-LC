@@ -20,7 +20,7 @@ library(Matrix)
 # 2. Tussock density is not correlated with any of the other variables
 
 
-tussock_data <- tibble(date =sort(rep(seq(as.Date("2021-03-01"), as.Date("2021-04-01"), by="days"), 15.5)), 
+grass_data <- tibble(date =sort(rep(seq(as.Date("2021-03-01"), as.Date("2021-04-01"), by="days"), 15.5)), 
                                   location_ID = seq(from = 1, to = 480, by = 1),
                                   soil_pH = signif(rtruncnorm(n = 480, a = 0, mean = 5.5, sd = 1.3), digits = 3),
                                   p_content = signif(rtruncnorm(n = 480, mean = 4, sd = 3.4), digits = 3),
@@ -56,7 +56,7 @@ sigma <- data.frame(split(sigmaVector,
                              labels = F)))
   
 # create the mean vector
-mu<-c(8, 15, -3, 4, 10)
+mu<-c(8, 15, -3, 6, 10)
 
 # generate the multivariate normal distribution
 df<-as.data.frame(MASS::mvrnorm(n=480, mu=mu, Sigma=sigma))
@@ -71,7 +71,7 @@ df <- df %>%
          n_content = 5)
 
 # combine the correlated data with the uncorrelated data
-hairgrass_data <- cbind(tussock_data, df)
+hairgrass_data <- cbind(grass_data, df)
 
 # sensibly round the numbers
 hairgrass_data <- hairgrass_data %>% 
