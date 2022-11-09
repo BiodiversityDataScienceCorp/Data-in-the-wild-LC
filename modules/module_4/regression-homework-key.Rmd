@@ -2,6 +2,7 @@
 title: "Regression Homework"
 author: "Mila Pruiett"
 output:
+  pdf_document: default
   html_document: default
 ---
 
