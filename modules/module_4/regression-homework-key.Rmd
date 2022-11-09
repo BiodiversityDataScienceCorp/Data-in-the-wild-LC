@@ -1,0 +1,95 @@
+---
+title: "Regression Homework"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Statistical inference and regression analyses homework
+
+### Your name:
+
+### Date:
+
+Score out of 20 points:
+
+### The assignment
+
+In this homework, you are going to look at the relationship between hairgrass density and another variable, the average summer temperature. The sites we sampled were along a gradient of summer temperatures, but we don't know if that is at all related to the growth of the hairgrass.
+
+1.  First load the tidyverse and read in the data. (1 pts)
+
+```{r}
+library("tidyverse")
+
+hairgrass <- read_csv("hairgrass_data.csv")
+```
+
+2.  Calculate descriptive statistics for the temperature (mean and standard deviation). As a reminder, this should NOT be grouped by another categorical variable (our data set doesn't even have categorical variables) (2pts)
+
+```{r}
+hairgrass %>% summarize(mean(avg_summer_temp), sd(avg_summer_temp))
+
+```
+
+3.  Create a scatter plot of hairgrass density and average summer temperature. Think carefully about which variable is the independent (x axis) and which is the dependent (y axis). Give your plot a title. hint: ggtitle("title here") Write a few sentences about what you think the relationship between hairgrass density and avg summer temperature is (is it related at all? are they positively related? negatively related?) (4 pts)
+
+```{r}
+hairgrass %>% 
+  ggplot(aes(x = avg_summer_temp, y = hairgrass_density_per_m2)) +
+  geom_point() +
+  ggtitle("There seems to be a relationship between the hairgrass density and the average summer temp")
+
+# I think there is a positive relationship. As temp increases, so does hairgrass density (anything is fine as long as they give some thought)
+```
+
+4.  Calculate the correlation coefficient, r. Calculate r-squared. Interpret what r squared means for this relationship. (3pts)
+
+```{r}
+r <- cor(y = hairgrass$hairgrass_density_per_m2, x = hairgrass$avg_summer_temp)
+r^2 
+
+# This means that 40% of the variation in hairgrass density can be explained by variation in the average summer temperature.
+
+```
+
+5.  What would the model for hairgrass density and summer temperature be? (Write it without the numbers for the coefficients) (1 pt)
+
+```{r}
+# hairgrass density = a * avg_summer_temp + b
+```
+
+6.  What are the null and alternative hypothesis regarding the relationship between these two variables? (2 pts)
+
+```{r}
+# null: There is no relationship between hairgrass density and avg_summer_temp
+# alt: There is a relationship between hairgrass density and avg_summer_temp
+```
+
+7.  Create the model in R and obtain the summary of it. What is the model? What is the p-value associated with the F-statistic? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (5 pts)
+
+```{r}
+mod <- lm(hairgrass$hairgrass_density_per_m2 ~hairgrass$avg_summer_temp)
+summary(mod) # 1pt
+
+# the p-value is <2.2e-16 
+# We can reject the null hypothesis
+# There is a relationship between average summer temperature and hairgrass ensity
+# Because it is a positie value, we should consider building a road in areas where it is colder where there will be less hairgrass 
+
+# if they put in the wrong variables and get the incorrect model, they can still get the rest of the points as long as they interpret the one they made correctly
+```
+
+8.  Create the scatter plot that includes the line of best fit (of which you now know the formula for)! (2 pts)
+
+```{r}
+hairgrass %>% 
+  ggplot(aes(x = avg_summer_temp, y = hairgrass_density_per_m2)) +
+  geom_point() +
+  ggtitle("There seems to be a relationship between the hairgrass density and the average summer temp") +
+  geom_smooth(method = "lm")
+```

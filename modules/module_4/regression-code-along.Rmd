@@ -31,25 +31,25 @@ We collected data for one month on key components of the hairgrass' environment
 
 -   percent soil rock : rockiness of soil impacts water drainage and temperature
 
--   max windpseed knots : antarctica is known for extreme wind, so un
+-   max windpseed knots : extreme wind can pose a challenge to plants of all types
 
--   average UV index :
+-   average UV index : plants can get sunburned too
 
--   average summer temperature :
+-   average summer temperature
 
--   average winter temperature :
+-   average winter temperature
 
--   penguin density within 100 m :
+-   penguin density within 100 m : the number of penguins per 5 m sq within 100 m of the sample quadrant for hairgrass
 
 -   hairgrass density (measured as number of individual clumps of hairgrass within 1 square meter)
 
 (This data is based on this article: I.Yu. Parnikoza, N.Yu. Miryuta, D.N. Maidanyuk, S.A. Loparev, S.G. Korsun, I.G. Budzanivska, T.P. Shevchenko, V.P. Polischuk, V.A. Kunakh, I.A. Kozeretska, Habitat and leaf cytogenetic characteristics of Deschampsia antarctica Desv. in the Maritime Antarctica, Polar Science, Volume 1, Issues 2--4, 2007, Pages 121-128, ISSN 1873-9652, <https://doi.org/10.1016/j.polar.2007.10.002>.)
 
-### Exploring and analyzing our first variable of interest
+### Exploring and analyzing our first variables of interest
 
 There are many environmental conditions that may be associated with hairgrass density. For today's code along, we are going to focus on two: soil pH and nitrogen content.
 
-Let's look at soil pH first.
+Let's look at nitrogen content first.
 
 We always should start with a data visualization and some descriptive statistics.
 
@@ -65,10 +65,10 @@ hairgrass <- read_csv("hairgrass_data.csv")
 # What kind of variables are they?
 # What kind of viz should we do?
 
-hairgrass %>% summarize(max(soil_pH), min(soil_pH), mean(soil_pH), sd(soil_pH))
+hairgrass %>% summarize(max(n_content), min(n_content), mean(n_content), sd(n_content))
 # okay cool good to know, emphasize we are not doing group by because not categorical data
 
-hairgrass %>% ggplot(aes(x = hairgrass_density_per_m2, y = soil_pH)) +
+hairgrass %>% ggplot(aes(y = hairgrass_density_per_m2, x = n_content)) +
   geom_jitter() 
   # could do jitter or not, what do other people think?
 
@@ -77,65 +77,115 @@ hairgrass %>% ggplot(aes(x = hairgrass_density_per_m2, y = soil_pH)) +
 
 ```
 
-Now let's actually calculate the correlation coefficient.
+Now let's actually calculate the correlation coefficient, r. As a reminder, the correlation coefficient is a number between -1 and 1 that kooks at the relationship between two numeric variables. The greater the magnitude of the correlation coefficient, the stronger the correlation (All the points fall exactly on the line of best fit if r = 1 or -1).
 
 ```{r}
-cor(hairgrass$hairgrass_density_per_m2, hairgrass$soil_pH)
-# wow that is a pretty low correlation coefficient. Let's see what the line of best fit looks like. What do we expect based on this correlation coefficient?
+r = cor(hairgrass$hairgrass_density_per_m2, hairgrass$n_content)
+# What do we expect based on this correlation coefficient?
 ```
+
+We often think about the correlation in terms of r-squared. All we have to do is square the value we calculated above. How do we interpret r-squared for this relationship?
+```{r}
+r^2 
+# Means that 40% of the variation in harigrass density can be explained by the variation in nitrogen content
+```
+
 
 Adding our line of best fit to the data
 
 ```{r}
-hairgrass %>% ggplot(aes(y = hairgrass_density_per_m2, x = soil_pH)) +
+# is that what we expected based on that correlation coefficient? 
+
+hairgrass %>% ggplot(aes(y = hairgrass_density_per_m2, x = n_content)) +
   geom_jitter() +
   geom_smooth(method = "lm")
 
-# is that what we expected based on that correlation coefficient? 
+
 ```
 
 If we want to add statistical rigor, we need to use regression analysis. A regression analysis approximates the relationship between a dependent variable and one or more independent variables and evaluates the strength of that relationship (giving us a p-value).
 
-We will use linear regressions in this unit. This simply means that the model will take the form of y = mx + b, where y is the dependent variable, x is the dependent variable, m is the slope, and b is the y-intercept.
+We will use linear regressions in this unit. This simply means that the model will take the form of y = ax + b, where y is the dependent variable, x is the dependent variable, a is the slope, and b is the y-intercept.
 
-What would the model for our question about soil pH be? (it's okay that we haven't yet calculated the values)
+What would the model for our question about nitrogen content be? (it's okay that we haven't yet calculated the values)
 
 ```{r}
-# hairgrass density = m *  soil_pH + b
+# hairgrass density = a *  n_content + b
 ```
 
 What is the null hypothesis? What is the alternative hypothesis?
 
 ```{r}
-# null: There is no relationship between hairgrass density and soil pH
-# alt: There is a relationship between hairgrass density and soil pH 
+# null: There is no relationship between hairgrass density and n_content
+# alt: There is a relationship between hairgrass density and n_content
 
 ```
 
 R can actually calculate what this model would be for us. The formula for the line of best fit (y = mx+b) aims to minimize the distance between each observation (point) and the line. What is the model?
 
 ```{r}
-summary(lm(hairgrass_density_per_m2 ~ soil_pH, data = hairgrass))
-# model: hairgrass density = 7.4 + 0.006 * soil pH
+summary(lm(hairgrass_density_per_m2 ~ n_content, data = hairgrass))
+# model: hairgrass density = 0.87 + 0.66 *n_content
 ```
 
 So what can we conclude about soil pH and hairgrass density?
 
 ```{r}
 # stats interpretation
-# Because the p-value associated with the F statistic was 0.875, we accept the null hypothesis that there is no relationship between soil pH and hairgrass density. The slope of the line is likely 0.
+# Because the p-value associated with the F statistic was 319, we reject the null hypothesis that there is no relationship between n_content and hairgrass density. The slope of the line is unlikely to be 0.
 
-# interpretation in light of scenario: we shouldn't worry about soil pH as we think about where to build our road
+# interpretation in light of scenario: we should pay attention to n content as we build our road
 
 # REMIND everyone how to submit these words so they get counted
 ```
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 
-If there is time, move on to nitrogen content.
+Moving on to soil pH
 
-Create a scatterplot of nitrogen content
+Data visualization, with the line of best fit, and summary statistics for soil pH
 
 ```{r}
+hairgrass %>% summarize(max(soil_pH), min(soil_pH), mean(soil_pH), sd(soil_pH))
+# okay cool good to know, emphasize we are not doing group by because not categorical data
 
+hairgrass %>% ggplot(aes(x = hairgrass_density_per_m2, y = soil_pH)) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+
+```
+
+What is the correlation coefficient?
+
+```{r}
+cor(hairgrass$hairgrass_density_per_m2, hairgrass$soil_pH)
+```
+
+What is the model for our question about soil pH, without values?
+
+```{r}
+# hairgrass density = a *  soil_pH + b
+```
+
+Create the model in R and calculate the values for a and b.
+
+```{r}
+summary(lm(hairgrass_density_per_m2 ~ soil_pH, data = hairgrass))
+# model: hairgrass density = 7.4 + 0.006 * soil pH
+```
+
+At alpha = 0.05, what do we conclude about the relationship between soil pH and hairgrass density and why?
+
+```{r}
+# stats interpretation
+# Because the p-value associated with the F statistic was 0.875, we accept the null hypothesis that there is no relationship between soil pH and hairgrass density. The slope of the line is likely 0.
+
+
+# REMIND everyone how to submit these words so they get counted
+```
+
+What does this mean for the road we are building?
+
+```{r}
+# interpretation in light of scenario: we shouldn't worry about soil pH as we think about where to build our road
 ```
