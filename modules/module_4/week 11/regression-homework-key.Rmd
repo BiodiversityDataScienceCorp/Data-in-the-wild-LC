@@ -92,5 +92,8 @@ hairgrass %>%
   ggplot(aes(x = avg_summer_temp, y = hairgrass_density_per_m2)) +
   geom_point() +
   ggtitle("There seems to be a relationship between the hairgrass density and the average summer temp") +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  ylab(bquote('Hairgrass density ' (individuals / m^2))) +
+  xlab("Average Summer Temperature (C)") +
+  ggtitle("Summer temperature and hairgrass density")
 ```

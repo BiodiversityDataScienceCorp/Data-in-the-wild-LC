@@ -99,7 +99,10 @@ Adding our line of best fit to the data
 
 hairgrass %>% ggplot(aes(y = hairgrass_density_per_m2, x = n_content)) +
   geom_jitter() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  ylab(bquote('Hairgrass density ' (individuals / m^2))) +
+  xlab("Nitrogen content (% in 100 mL sample)") +
+  ggtitle("Nitrogen content and hairgrass density")
 
 
 ```
@@ -150,9 +153,12 @@ Data visualization, with the line of best fit, and summary statistics for soil p
 hairgrass %>% summarize(max(soil_pH), min(soil_pH), mean(soil_pH), sd(soil_pH))
 # okay cool good to know, emphasize we are not doing group by because not categorical data
 
-hairgrass %>% ggplot(aes(x = hairgrass_density_per_m2, y = soil_pH)) +
+hairgrass %>% ggplot(aes(y = hairgrass_density_per_m2, x = soil_pH)) +
   geom_jitter() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  ylab(bquote('Hairgrass density ' (individuals / m^2))) +
+  xlab("Soil pH") +
+  ggtitle("soil pH and hairgrass density")
 
 ```
 
@@ -190,3 +196,16 @@ What does this mean for the road we are building?
 ```{r}
 # interpretation in light of scenario: we shouldn't worry about soil pH as we think about where to build our road
 ```
+
+
+```{r}
+ hairgrass %>% ggplot(aes(x= penguin_density_per_5m2_within_100m, y = n_content)) +
+  geom_jitter() +
+  geom_smooth(method = "lm") +
+  xlab(bquote('Penguin density ' (individuals /5 *m^2))) +
+  ylab("Nitrogen content (% in 100 mL sample)") +
+  ggtitle("Penguin density is related to nitrogen content")
+
+summary(lm(n_content ~ penguin_density_per_5m2_within_100m, data = hairgrass))
+```
+
