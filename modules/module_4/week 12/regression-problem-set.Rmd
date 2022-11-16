@@ -12,9 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Regression Analyses Continued
 
-We are going to continue figuring out what environmental parameters are important for the hairgrass (the really awesome vascular plant in the arctic). Last week, we found that hairgrass density was significantly positively correlated with nitrogen content and the average summer temperature.
+We are going to continue figuring out what environmental parameters are important for the hairgrass (the really awesome vascular plant in the arctic). Last week, we found that hairgrass density was significantly positively correlated with nitrogen content and the average summer temperature. This week, we will explore the other variables in the data set. Each of you will be assigned one variable, and will work in teams. Each person needs to turn in a completed copy of this assignment.
 
-Each small group will look at a different variable. The remaining variables are
+The remaining variables are
 
 -   phosphorous content
 
@@ -28,13 +28,15 @@ Each small group will look at a different variable. The remaining variables are
 
 -   penguin density (per 5 sq m within 100 m of the hairgrass quadrants)
 
-**Write your group's variable here:**
+**Write your variable here:**
 
-As you go, please populate the appropriate slide deck
+Please fill out the slide deck below in your group.
 
 11:30 Class <https://docs.google.com/presentation/d/1X9qGtxDMBo4eRk2SY_ogTLZjY6NoxAhbtb4SE3QZKag/edit#slide=id.p>
 
 1:50 Class <https://docs.google.com/presentation/d/1EZ9Z1XhR_NMnc1xMuEtOlUuuYi-8gPr52a4bdM8D8IE/edit#slide=id.p>
+
+As a reminder, you can always look back on past assignments or at the **Coding cheat sheet** <https://docs.google.com/document/d/1CJQdSOXL0gkSZ1Y0h-xR8-fJn0twbglAUpNy8cm-SBQ/edit> for reference.
 
 Load the tidyverse and read in your data
 
@@ -65,3 +67,7 @@ Load the tidyverse and read in your data
 ```{r}
 
 ```
+
+Have one person working on this variable upload the results into the slide deck.
+
+Each person turn in this .Rmd file to moodle during class.
