@@ -48,7 +48,7 @@ Load the tidyverse and read in your data
 
 ```
 
-2.  Create a linear regression with hairgrass density and your variable.
+2.  Create a linear regression with hairgrass density and your variable. What is the null hypothesis?
 
 ```{r}
 
