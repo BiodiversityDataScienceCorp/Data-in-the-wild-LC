@@ -40,15 +40,15 @@ points(x = sealData$longitude,
        pch = 20, 
        cex = 0.75)
 
-points(x = hairgrassData$longitude, 
-       y = hairgrassData$latitude, 
-       col = "green",
-       pch = 20, 
-       cex = 0.75)
-
 points(x = adelieData$longitude, 
        y = adelieData$latitude, 
        col = "pink",
+       pch = 20, 
+       cex = 0.75)
+
+points(x = hairgrassData$longitude, 
+       y = hairgrassData$latitude, 
+       col = "green",
        pch = 20, 
        cex = 0.75)
 
@@ -57,7 +57,7 @@ points(x = adelieData$longitude,
 # zoomed in near fishing spot
 plot(wrld_simpl, 
      xlim = c(-70, -60),
-     ylim = c(-69, -67),
+     ylim = c(-69, -65),
      axes = TRUE, 
      col = "grey95",
      xlab = "Longitude",

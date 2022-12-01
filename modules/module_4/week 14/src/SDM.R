@@ -96,36 +96,9 @@ box()
 
 ##### Antarctica bioclim data (in folder called ESM in data)
 
-rastlist <- list.files(path = 'data/ESM', pattern = "*d2.tif$", full.names=TRUE)
+rastlist <- list.files(path = 'modules/module_4/week 14/data/ESM', pattern = "*d2.tif$", full.names=TRUE)
 allrasters <- lapply(rastlist, raster)
 allrasters <- stack(rastlist)
-
-# Build species distribution model
-antarcticaBc_model <- bioclim(x = allrasters, p = obs_data)
-
-predict_presence <- dismo::predict(object = antarcticaBc_model, 
-                                   x = bioclim_data)
-
-# Plot base map
-plot(wrld_simpl, 
-     xlim = c(-55, -35),
-     ylim = c(-80, -60),
-     axes = TRUE, 
-     col = "grey95")
-
-# Add model probabilities
-plot(predict_presence, add = TRUE)
-
-# Redraw those country borders
-plot(wrld_simpl, add = TRUE, border = "grey5")
-
-# Add original observations
-points(x = obs_data$longitude, 
-       y = obs_data$latitude, 
-       col = "olivedrab", 
-       pch = 20, 
-       cex = 0.75)
-box()
 
 ## mila making model 
 rastlist <- list.files(path = 'data/ESM', pattern = "*d2.tif$", full.names=TRUE)
@@ -181,9 +154,9 @@ sdmdataSubset <- sdmdata %>% select("pb", "bio1_d2", 'bio10_d2', 'bio11_d2', 'bi
 sdmdataSubset$pb <- 1
 
 # add the points that are in chile
-presvals2 <- raster::extract(bioclim_data, obs_data)
-backgr2 <- randomPoints(bioclim_data, 500)
-absvals2 <- raster::extract(bioclim_data, backgr2)
+presvals2 <- raster::extract(allrasters, my_dist)
+backgr2 <- randomPoints(allrasters, 500)
+absvals2 <- raster::extract(allrasters, backgr2)
 pb <- c(rep(1, nrow(presvals2)), rep(0, nrow(absvals2)))
 sdmdata2 <- data.frame(cbind(pb, rbind(presvals2, absvals2)))
 sdmdata2 <- na.omit(sdmdata2)
@@ -196,22 +169,19 @@ sdmdata2 <- sdmdata2 %>%
   rename(bio13_d2 = bio13) %>% 
   rename(bio14_d2 = bio14)
 
-sdmdata2Subset <- sdmdata %>% select("pb", "bio1_d2", 'bio10_d2', 'bio11_d2', 'bio12_d2', 'bio13_d2', 'bio14_d2')
+sdmdata2Subset <- sdmdata2 %>% select("pb", "bio1_d2", 'bio10_d2', 'bio11_d2', 'bio12_d2', 'bio13_d2', 'bio14_d2')
 
 allSdmData <- rbind(sdmdataSubset, sdmdata2Subset)
 
-m1 <- glm(pb ~ bio1_d2 + bio10_d2 + bio11_d2 + bio12_d2 + bio13_d2 + bio14_d2, data=allSdmData)
+m1 <- glm(pb ~ bio1_d2 + bio10_d2 + bio11_d2 + bio12_d2 + bio13_d2 + bio14_d2, data=sdmdata2)
 class(m1)
 summary(m1)
 
-bc2 <- bioclim(sdmdata2Subset[,c('bio1_d2', 'bio10_d2', 'bio11_d2', 'bio12_d2', 'bio13_d2')])
-pairs(bc)
+bc2 <- bioclim(sdmdata2[,c('bio1_d2', 'bio10_d2', 'bio11_d2', 'bio12_d2', 'bio13_d2')])
+pairs(bc2)
 
 
-# need new raster that includes both locations
-# rename columns
-
-p2 <- predict(bioclim_data, bc2)
+p2 <- predict(allrasters, bc2)
 plot(p2, 
      main = "Species Distribution Model for Antarctic Hairgrass",
      add = F)
@@ -239,3 +209,17 @@ points(x = obs_data$longitude,
        col = "olivedrab", 
        pch = 20, 
        cex = 0.75)
+
+
+
+
+
+# convert lat long observations to great circle distance
+install.packages("geosphere")                # Install & load geosphere
+library("geosphere")
+
+hairgrassData <- read_csv("modules/module_4/week 14/data/hairgrass.csv")
+hairgrassData <- hairgrassData %>% select(longitude, latitude)
+
+my_dist <- distHaversine(hairgrassData)          # Calculate Haversine distance
+my_dist         
