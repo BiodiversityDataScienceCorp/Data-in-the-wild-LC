@@ -1,10 +1,14 @@
-# Module 3 - Follow that seal!
+# Module 3, Week 8
 
-### Week 8
+### Concepts
 
 
-Monday: Introduced scenario, and inferential statistics.
+### Weekly Schedule
 
-Wednesday: [Code along, with t-tests](seals-t-tests.Rmd).
+Day 1: Introduced scenario and inferential statistics with a lecture. 
 
-Friday: [Homework set](seals-hw.Rmd).
+Day 2: [Code along, with t-tests](seals-t-tests.Rmd).
+
+Homework:
+
+Day 3: [Homework set](seals-hw.Rmd).
