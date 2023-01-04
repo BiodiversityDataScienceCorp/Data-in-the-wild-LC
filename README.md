@@ -6,7 +6,7 @@
 
 ## Course Overview
 
-Data in the Wild is a semester-long introductory course to quantitative reasoning, primarily using R to apply concepts to "real world" scenarios. This course is designed for first-year college students with no experience coding. Throughout this course, there are three interwoven narratives broken into four modules: a mission to Antarctia as the real world scenario, coding in R, and quantitative reasoning.
+Data in the Wild is a semester-long introductory course to quantitative reasoning, primarily using R to apply concepts to "real world" scenarios. This course is designed for first-year college students with no experience coding. Throughout this course, there are three interwoven narratives broken into four modules: a mission to Antarctia as the real world scenario, coding in R, and quantitative reasoning. We rely heavily on tidyverse for many functions, including plotting in ggplot. 
 
 ## Intended Audience
 
