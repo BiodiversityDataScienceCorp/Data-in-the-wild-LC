@@ -7,8 +7,8 @@
 
 Day 1: Introduced scenario and inferential statistics with a lecture. 
 
-Day 2: [Code along, with t-tests](seals-t-tests.Rmd).
+Day 2: In class code along, seals-t-tests.Rmd. 
 
-Homework:
+Homework: problemSet5.Rmd
 
-Day 3: [Homework set](seals-hw.Rmd).
+Day 3: Performing a t-test by hand. MILA NEEDS TO UPLOAD DOCUMENT HERE FOR THIS. 
