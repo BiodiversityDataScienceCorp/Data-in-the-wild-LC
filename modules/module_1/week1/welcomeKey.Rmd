@@ -1,4 +1,4 @@
-  `---
+---
 title: "Welcome to rstudio"
 author: "Jeremy McWilliams"
 date: "September 2nd, 2022"
@@ -47,7 +47,7 @@ Let's try running the code chunk below, which is just some simple arithmetic:
 
 ```{r}
 
-
+3+7
 
 
 ```
@@ -70,7 +70,7 @@ Programming languages, including R, rely heavily on the use of *variables*. A va
 
 # Notice we use a 'left pointing arrow' to assign the value
 
-
+x<-7
 
 ```
 
@@ -79,6 +79,7 @@ We don't get any real feedback from running the code above, but it's often a goo
 ```{r}
 # prints to the screen:
 
+x
 
 ```
 
@@ -86,10 +87,10 @@ It's worth noting that you can run multiple lines of code within a code chunk:
 
 ```{r}
 # create a variable "penguinCount" and give it the value 3
-
+penguinCount<-3
 
 # print to screen
-
+penguinCount
 
 
 ```
