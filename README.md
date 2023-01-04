@@ -6,7 +6,7 @@
 
 ## Course Overview
 
-Data in the Wild is an introductory course to quantitative reasoning, primarily using R to apply concepts to "real world" scenarios. This course is designed for first-year college students with no experience coding. Throughout this course, there are three interwoven narratives broken into four modules: a mission to Antarctia as the real world scenario, coding in R, and quantitative reasoning.
+Data in the Wild is a semester-long introductory course to quantitative reasoning, primarily using R to apply concepts to "real world" scenarios. This course is designed for first-year college students with no experience coding. Throughout this course, there are three interwoven narratives broken into four modules: a mission to Antarctia as the real world scenario, coding in R, and quantitative reasoning.
 
 ## Intended Audience
 
@@ -18,9 +18,11 @@ The Antarctica Narrative: We begin module 1 with getting to know the team of stu
 
 We completed the course with group independent projects based on real antarctica data, culminating in 1. data visualization(s) and abstract, and 2. oral presentation of the visualizations. Information on independent projects is located within the independent project folder.
 
-## Course Material Organization in Github
+## Course Material Organization
 
-The lessons are organized by module and week. In each module, there is a readme file explaining the broad goals. Each week also has a read me file explaining the sequence of activities. Our course schedule is located in the extras folder. We generally structured each module as follows:
+The lessons are organized by module and week. Our course schedule is located in the extras folder.
+
+We generally structured each module as follows:
 
 Day 1: Lecture or discussion-based introduction to the quantitative and narrative content
 
@@ -28,4 +30,7 @@ Day 2: In-class code along session, homework to follow
 
 Day 3: Small group work on practice and challenge problems using the Palmer Penguin data set
 
-Repeat in-class code along and practice until all module topics addressed. Written exam. We also interspersed in-class work days for the independent projects.
+Repeat in-class code along and practice until all module topics addressed. Written reflection prompts were also used ~ once per module as homeworks. Written exam given at the end of the module, focusing more on core concepts of quantitative reasoning. We also interspersed in-class work days for the independent projects during the second half of the semester.
+
+## Github Material Organization 
+In each module, there is a readme file explaining the broad goals. Each week also has a read me file explaining the sequence of activities.
