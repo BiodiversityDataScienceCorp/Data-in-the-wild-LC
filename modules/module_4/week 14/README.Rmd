@@ -1,19 +1,19 @@
 # Module 4, Week 14
 
-# Concepts:
+### Concepts:
 * Simple linear regression
 * Species occurence maps
 * Species distribution model
 * Making decisions with data
 
-# Weekly Schedule
+### Weekly Schedule
 Day 1: Wrapping up module 4! Using the regressions we performed last week, we found what conditions are positively associated with antarctic hair grass. The penguin-poop-nitrogen-hairgrass relationship was a big reveal moment. The power of models is that it can predict hair grass density in places where we haven't physically visited to look for the organism. What we did in this lesson is actually similar to a species distribution model. Unfortunately, we couldn't make a SDM due to complications with missing Antarctica data in bioclim.  So instead we used species occurence maps as the next best thing. We included a couple key terrestrial Antarctica species and showed them how real iNaturalist data can be used for these things. We had a class discussion about which road route would be optimal to minimize our impact on the wildlife (three routes drawn onto a map of Antarctica from our chosen base to the fishing spot we found in Module 3).
 
 Day 2: In class work time on independent projects. 
 
 Day 3: Student presentations of independent projects (continued to Day 1 of Week 15, the last day of classes)
 
-# Description of files
+### Description of files
 Data: contains all of the queried iNaturalist data for the four terrestrial Antarctica species we decided to include in our minimization of impact discussion.
 
 src, in order of usage: (* note: none of these files are for student use)

@@ -14,5 +14,5 @@ Homework: regression-homework.Rmd which uses hairgrass_data.csv.
 
 Day 3: Tips on data visualizations for independent projects
 
-# File Descriptions
+### File Descriptions
 generatingHairgrassData.R creates the dataset. Hairgrass density is correlated (or not) with a variety of variables, depending on the actual biological relationships between things. There are confounding variables as well (nitrogen content and penguin density, becuase of their high-nitrogen waste). 
