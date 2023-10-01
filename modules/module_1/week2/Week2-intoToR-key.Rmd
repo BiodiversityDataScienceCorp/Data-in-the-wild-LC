@@ -108,7 +108,7 @@ Let's say you are interested in calculating the absolute value (positive distanc
 ```{r}
 # compute the absolute value of -35
 
-
+abs(-35)
 
 ```
 
@@ -131,6 +131,9 @@ Now it's your turn. Create a vector called `mySecondVector`, assign the values 8
 ```{r}
 # use the "c" function to create mySecondVector:
 
+mySecondVector<-c(8,-11,100, 35)
+
+mySecondVector
 
 ```
 
@@ -186,10 +189,15 @@ cookingSkill<-c(4,5,4,1,2,5,4,4,4,4,3,2,2,2,4,4,4,3,3,5,3,3,4,4,5,5,3,4,3,3,4,4,
 
 # calculate the mean
 
+mean(cookingSkill)
+
 #calculate median
+
+median(cookingSkill)
 
 # calculate the standard deviation
 
+sd(cookingSkill)
 
 
 ```
@@ -253,25 +261,27 @@ Use the data set to get the column values for tolerance of cold (hint: after typ
 
 # create a vector that contains the column values for cold tolerance
 
-
+cold<-teamAntarcticaData$cold
 
 #calculate the mean
 
+mean(cold)
 
 #calculate the median
 
+median(cold)
 
 # calculate the standard deviation
 
-
+sd(cold)
 
 ```
 
-Now do the same for bedside manner:
+Now do the same for comfort level with being in a remote location:
 
 ```{r}
 
-# create a vector that contains the column values for bedside manner
+# create a vector that contains the column values for comfort level with remote location
 
 
 
