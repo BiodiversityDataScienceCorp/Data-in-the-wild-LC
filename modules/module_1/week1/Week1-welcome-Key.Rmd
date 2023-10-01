@@ -58,7 +58,7 @@ Now it's your turn. In the code chunk below, enter a command to subtract 7 from 
 
 # Enter code below (by the way, I'm a comment)
 
-
+18-7
 
 ```
 
@@ -104,13 +104,18 @@ Now it's your turn. Work with your group / people next to you, and do the follow
 
 # create the variable "y" here, and print to screen
 
+y<-3+8
+
+y
 
 ```
 
 ```{r}
 # create the variable "z" here, and print to screen
 
+z<-x+y
 
+z
 
 ```
 
