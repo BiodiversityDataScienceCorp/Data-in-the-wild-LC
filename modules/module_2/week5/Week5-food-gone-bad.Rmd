@@ -204,10 +204,7 @@ data and generate the means, using group_by/summarize:
 
 ```{r}
 
-drVisits<-sick %>% group_by(sex) %>%
-  summarize(meanVisits=mean(doctor_trips))
 
-drVisits
 
 ```
 
