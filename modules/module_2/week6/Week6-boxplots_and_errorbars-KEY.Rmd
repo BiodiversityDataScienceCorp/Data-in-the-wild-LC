@@ -1,0 +1,105 @@
+---
+title: "Boxplots, bar plots, and error bars"
+output: 
+  html_document:
+    css: "style.css"
+---
+
+```{r}
+library(tidyverse)
+
+library(palmerpenguins)
+
+penguins<-palmerpenguins::penguins
+
+penguins
+
+
+
+```
+
+### Box plots with error bars
+
+Strategy: Use geom_boxplot(), and in the aes function, set x equal to a categorical column, which will automatically group them. For the horizontal lines (error bars), add stat_boxplot(geom = "errorbar").
+
+```{r}
+
+
+ggplot(data=penguins, mapping=aes(x=species, y=bill_length_mm, fill=species))+
+  stat_boxplot(geom="errorbar")+
+  geom_boxplot()+
+  labs(title="Distribution of Penguin Bill lengths by Species",
+       x="Species", y="Bill Length (mm)")
+
+
+
+
+
+```
+
+### Bar plots with error bars
+
+Strategy: use group_by/summarize to calculate group mean and standard deviation. Add geom_errorbar, in which the top top bar is the mean + standard deviation, and the lower bar is the mean - standard deviation:
+
+```{r}
+
+groupedBillLength<- penguins %>% 
+  group_by(species) %>%
+  summarize(avgBillLength=mean(bill_length_mm, na.rm=TRUE), 
+            sdBillLength=sd(bill_length_mm, na.rm=TRUE))
+
+groupedBillLength
+
+ggplot(data=groupedBillLength, mapping=aes(x=species, y=avgBillLength, fill=species))+
+  geom_bar(stat="identity")+
+  geom_errorbar(mapping=aes(ymin=avgBillLength-sdBillLength, 
+                            ymax=avgBillLength+sdBillLength), width=0.2)+
+  labs(title="Average Bill Length by Species", 
+       x="Species", 
+       y="Bill Length (mm)")
+
+
+
+
+
+
+```
+
+### Practice
+
+Create a box plot comparing penguin mass among species. Include error bars, a legend, and labels.
+
+```{r}
+# create box plot below
+
+ggplot(data=penguins, mapping=aes(x=species, y=body_mass_g, fill=species))+
+  stat_boxplot(geom="errorbar")+
+  geom_boxplot()+
+  labs(title="Distribution of Penguin Mass by Species",
+       x="Species", y="Mass (g)")
+  
+
+```
+
+Create a bar plot comparing penguin mass among species. Include error bars (+/- 1 sd), a legend, and labels.
+
+```{r}
+# create bar plot below
+
+
+groupedMass<- penguins %>% 
+  group_by(species) %>%
+  summarize(avgMass=mean(body_mass_g, na.rm=TRUE), 
+            sdMass=sd(body_mass_g, na.rm=TRUE))
+
+groupedMass
+
+ggplot(data=groupedMass, mapping=aes(x=species, y=avgMass, fill=species))+
+  geom_bar(stat="identity")+
+  geom_errorbar(mapping=aes(ymin=avgMass-sdMass, 
+                            ymax=avgMass+sdMass), width=0.2)+
+  labs(title="Average Penguin Mass by Species", x="Species", y="Mass (g)")
+
+
+
+```

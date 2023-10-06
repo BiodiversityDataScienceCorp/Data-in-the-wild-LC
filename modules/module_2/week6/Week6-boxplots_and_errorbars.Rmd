@@ -1,0 +1,63 @@
+---
+title: "Boxplots, bar plots, and error bars"
+output: pdf_document
+---
+
+```{r}
+library(tidyverse)
+
+library(palmerpenguins)
+
+penguins<-palmerpenguins::penguins
+
+penguins
+
+
+
+```
+
+### Box plots with error bars
+
+Strategy: Use geom_boxplot(), and in the aes function, set x equal to a categorical column, which will automatically group them. For the horizontal lines (error bars), add stat_boxplot(geom = "errorbar").
+
+```{r}
+
+
+
+
+
+
+```
+
+### Bar plots with error bars
+
+Strategy: use group_by/summarize to calculate group mean and standard deviation. Add geom_errorbar, in which the top top bar is the mean + standard deviation, and the lower bar is the mean - standard deviation:
+
+```{r}
+
+
+
+
+```
+
+### Practice
+
+Create a box plot comparing penguin mass among species. Include error bars, a legend, and labels.
+
+```{r}
+# create box plot below
+
+
+
+```
+
+Create a bar plot comparing penguin mass among species. Include error bars (+/- 1 sd), a legend, and labels.
+
+```{r}
+# create bar plot below
+
+
+
+
+
+```
