@@ -13,4 +13,4 @@ Day 2: In class code along, seals-t-tests.Rmd, which uses both arctic-fish.csv a
 
 Homework: problemSet5.Rmd
 
-Day 3: Performing a t-test by hand. MILA NEEDS TO UPLOAD DOCUMENT HERE FOR THIS. 
+Day 3: Performing a t-test by hand. pdf and word versions (t-test homework by hand)
